@@ -1,0 +1,25 @@
+Anggota Kelompok 3:
+-Kevin Adhi Dhamma Setiawan 535200050
+-Stephen Adhikurnia 535200056
+-Richard Stephen 535200058
+-Wendy Bunandi 535200066
+-Hongi Nagaputra 535200082
+
+
+What :
+Toko Komputer Berbasis Website.
+
+Who :
+Calon customer dari toko ini seperti Pekerja WFH, Pelajar, Content Creator,dan Gamer. Website akan dibuat oleh seluruh anggota Kelompok 3.
+
+Where :
+Toko akan berada di Internet dalam bentuk website. Pengkodean website dibuat di VS Code.
+
+When :
+Project akan dilakukan selama semester 3 atau selama perkuliahan Web Programming.
+
+Why :
+Sejak pandemi merebak dan sebagian besar orang melakukan kegiatan secara online(seperti WFH), maka kebutuhan akan komputer, laptop dan berbagai jenis aksesorisnya meningkat.
+
+How :
+Pembuatan website akan dilakukan menggunakan HTML dan CSS sebagai front-end untuk membuat tampilan yang menarik, serta JS, Node JS/Mongo DB akan digunakan untuk bagian back-end.
