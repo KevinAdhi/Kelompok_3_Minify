@@ -22,4 +22,4 @@ Why :
 Sejak pandemi merebak dan sebagian besar orang melakukan kegiatan secara online(seperti WFH), maka kebutuhan akan komputer, laptop dan berbagai jenis aksesorisnya meningkat.
 
 How :
-Pembuatan website akan dilakukan menggunakan HTML, CSS, dan JS  sebagai front-end untuk membuat tampilan yang menarik, serta Node JS/Mongo DB akan digunakan untuk bagian back-end.
+Pembuatan website akan dilakukan menggunakan HTML, CSS, Bootstrap dan JS  sebagai front-end untuk membuat tampilan yang menarik, serta Node JS/Mongo DB akan digunakan untuk bagian back-end.
