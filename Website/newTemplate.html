@@ -17,13 +17,13 @@
                 Minify
             </a>
             <!-- search -->
-            <form class="navbar-nav" id="navbarSupportedContent" style="width: 50%;">
+            <form class="d-none d-lg-flex navbar-nav" style="width: 50%;">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
                 <button class="btn btn-outline-dark" type="submit"><i data-feather="search"></i></button>
             </form> 
 
             <!-- cart & account -->
-            <div class="navbar-nav nav-item" id="navbarSupportedContent" >
+            <div class="d-none d-lg-flex navbar-nav nav-item" id="navbarSupportedContent" >
                 <a class="btn btn-outline-dark" href="#" aria-current="page" style=" margin: 0 5pt;">
                     <i data-feather="shopping-cart" style="padding-right: 2px;"></i>
                 </a>
@@ -56,8 +56,25 @@
             </button>
         </div>
         <div>
+
+            <!-- search & account -->
+            <div class="navbar-nav d-lg-none collapse" id="navbarSupportedContent" style="align-items: center;">
+                <form style="display: flex;">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                    <button class="btn btn-outline-dark" type="submit"><i data-feather="search"></i></button>
+                </form> <br>
+                <div class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><i data-feather="shopping-cart"></i> Shopping Cart</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><i data-feather="user"></i> Account</a>
+                </div>
+                
+            </div>
+            
             <!-- navigation bar -->
             <div class="navbar-nav collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- product -->
                 <div class="navbar-nav dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Product
@@ -71,6 +88,7 @@
                         <a class="dropdown-item" href="#">Semua Produk</a>
                     </div>
                 </div>
+                <!-- about us -->
                 <div class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         About Us
@@ -80,6 +98,7 @@
                         <li><a class="dropdown-item" href="#">FAQ</a></li>
                     </ul>
                 </div>
+                <!-- how to order -->
                 <div class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">How To Order</a>
                 </div>
