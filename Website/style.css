@@ -35,7 +35,7 @@ nav {
   padding: 20px;
   /* display: flex; */
   /* justify-content: space-between; */
-  background-color: grey;
+  background-color: #D9CDCD;
   /* align-items: center; */
 }
 
@@ -87,13 +87,13 @@ nav {
 }
 
 #search-bar input {
-  background-color: grey;
+  background-color: #D9CDCD;
   height: 30px;
   width: 75%;
 }
 
 .search-bar {
-  background-color: grey;
+  background-color: #D9CDCD;
   width: 75%;
 }
 ::placeholder {
@@ -102,9 +102,11 @@ nav {
 }
 
 footer {
-  background-color: grey;
+  background-color: #D9CDCD;
+  position: fixed;
+  width: 100%;
   height: 100px;
   bottom: 0;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0;
 }
