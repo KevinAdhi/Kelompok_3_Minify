@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Name</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="/css/all.css" />
+
+    <style>
+      .jc-sb {
+        display: flex;
+        justify-content: space-between;
+      }
+      .ta-c {
+        text-align: center;
+      }
+      footer {
+        padding: 20px;
+        background-color: rgb(149, 147, 147);
+      }
+      .td a {
+        text-decoration: none;
+        color: black;
+      }
+      .contact a {
+        padding: 0 5px;
+      }
+
+      .product {
+        display: flex;
+        /* justify-content: space-between; */
+      }
+
+      .prodimage {
+        width: 50%;
+      }
+
+      .main-image {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+      }
+
+      .image-option {
+        width: 24%;
+      }
+
+      .reviewbox,
+      .descbox {
+        width: 100%;
+      }
+
+      .prodreview,
+      .proddesc {
+        width: 70%;
+      }
+
+      .prodetail {
+        margin-left: 20%;
+      }
+
+      .secmargin {
+        background-color: rgb(175, 175, 175);
+
+        padding: 5%;
+      }
+
+      @media screen and (max-width: 800px) {
+        .product {
+          display: block;
+        }
+
+        .prodimage {
+          width: 100%;
+          margin-bottom: 5%;
+        }
+
+        .reviewbox,
+        .descbox {
+          width: 100%;
+        }
+        .prodreview,
+        .proddesc {
+          width: 100%;
+        }
+        .main-image {
+          width: 100%;
+        }
+
+        .prodetail {
+          margin-left: 0;
+        }
+
+        .secmargin {
+          margin: 10% 10%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <section>
+      <nav
+        class="navbar navbar-expand-lg navbar-light"
+        style="
+          padding: 1% 2%;
+          display: flex;
+          flex-direction: column;
+          background-color: rgb(200, 200, 200);
+        "
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand fs-1" href="#"> Minify </a>
+          <!-- search -->
+          <form class="d-none d-lg-flex navbar-nav" style="width: 50%">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-dark" type="submit">
+              <i data-feather="search"></i>
+            </button>
+          </form>
+
+          <!-- cart & account -->
+          <div
+            class="d-none d-lg-flex navbar-nav nav-item"
+            id="navbarSupportedContent"
+          >
+            <a
+              class="btn btn-outline-dark"
+              href="#"
+              aria-current="page"
+              style="margin: 0 5pt"
+            >
+              <i data-feather="shopping-cart" style="padding-right: 2px"></i>
+            </a>
+            <div
+              class="navbar-nav nav-item dropdown"
+              id="navbarSupportedContent"
+            >
+              <button
+                class="nav-item btn btn-outline-dark dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="true"
+              >
+                <i data-feather="user"></i> Account
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Wishlist</a>
+                <a class="dropdown-item" href="#">My Order</a>
+                <a class="dropdown-item" href="#">Messages</a>
+                <li class="dropdown-divider"></li>
+                <a class="dropdown-item" href="#">Log Out</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- responsive menu button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsiveDropdown"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            style="margin-left: auto"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="container">
+          <!-- search & cart & account responsive-->
+          <div
+            class="navbar-nav d-lg-none collapse"
+            id="navbarResponsiveDropdown"
+          >
+            <form style="display: flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-dark" type="submit">
+                <i data-feather="search"></i>
+              </button>
+            </form>
+            <br />
+            <div class="nav-item">
+              <a class="nav-link" aria-current="page" href="#"
+                ><i data-feather="shopping-cart"></i> Shopping Cart</a
+              >
+            </div>
+            <div class="nav-item">
+              <!-- <a class="nav-link dropdown-toggle" aria-current="page" href="#"><i data-feather="user"></i> Account</a> -->
+
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="true"
+              >
+                <i data-feather="user"></i> Account
+              </a>
+
+              <div
+                class="dropdown-menu dropdown-menu"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Wishlist</a>
+                <a class="dropdown-item" href="#">My Order</a>
+                <a class="dropdown-item" href="#">Messages</a>
+                <li class="dropdown-divider"></li>
+                <a class="dropdown-item" href="#">Log Out</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- navigation bar -->
+          <div class="collapse navbar-collapse" id="navbarResponsiveDropdown">
+            <ul class="navbar-nav mx-auto">
+              <!-- product -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="productDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Product
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                  <li><a class="dropdown-item" href="#">Komputer</a></li>
+                  <a class="dropdown-item" href="#">Laptop</a>
+                  <a class="dropdown-item" href="#">Aksesoris</a>
+                  <a class="dropdown-item" href="#">Lain-lain</a>
+                  <li class="dropdown-divider"></li>
+                  <a class="dropdown-item" href="#">Semua Produk</a>
+                </ul>
+              </li>
+              <!-- about us -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="aboutUsDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  About Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="aboutUsDropdown">
+                  <li><a class="dropdown-item" href="#">Terms</a></li>
+                  <li><a class="dropdown-item" href="#">FAQ</a></li>
+                </ul>
+              </li>
+              <!-- how to order -->
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"
+                  >How To Order</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <!-- ISI -->
+    <section style="background-color: grey; padding: 5%">
+      <div class="secmargin">
+        <div class="mb-4 product">
+          <!-- Image -->
+          <div class="prodimage">
+            <!-- Image view -->
+            <div class="mb-3">
+              <img
+                src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
+                alt="image"
+                class="main-image"
+                id="expandedImg"
+              />
+            </div>
+            <!-- Image Option -->
+            <div>
+              <img
+                src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
+                alt="image"
+                class="image-option"
+                onclick="myFunction(this);"
+              />
+              <img
+                src="/image/alienware-Bp3KmTZQlfw-unsplash.jpg"
+                alt="image"
+                class="image-option"
+                onclick="myFunction(this);"
+              />
+              <img
+                src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
+                alt="image"
+                class="image-option"
+                onclick="myFunction(this);"
+              />
+              <img
+                src="/image/alienware-Bp3KmTZQlfw-unsplash.jpg"
+                alt="image"
+                class="image-option"
+                onclick="myFunction(this);"
+              />
+            </div>
+          </div>
+          <!-- Product Details -->
+          <div class="prodetail">
+            <h4><b>Product Name</b></h4>
+            <div class="jc-sb mb-3">
+              <p>(5.0/5.0)</p>
+              <div style="display: flex; margin-left: 5px">
+                <i data-feather="star"></i>
+                <i data-feather="star"></i>
+                <i data-feather="star"></i>
+                <i data-feather="star"></i>
+                <i data-feather="star"></i>
+              </div>
+            </div>
+            <div class="jc-sb mb-3">
+              <input
+                class="btn btn-primary"
+                type="button"
+                onclick="downFunc()"
+                value="-"
+              />
+              <input
+                type="number"
+                value="1"
+                id="count"
+                style="
+                  width: 25%;
+                  background-color: rgb(175, 175, 175);
+                  border: none;
+                  text-align: center;
+                "
+              />
+              <input
+                class="btn btn-primary"
+                type="button"
+                onclick="upFunc()"
+                value="+"
+              />
+            </div>
+            <!-- Price -->
+            <div style="text-align: center">
+              <p>Rp xx.xxx,xx</p>
+            </div>
+            <div class="mb-3">
+              <input
+                class="btn btn-primary"
+                type="submit"
+                value="Add to Cart"
+                style="width: 100%"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                class="btn btn-primary"
+                type="submit"
+                value="Buy Now"
+                style="width: 100%"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                class="btn btn-primary"
+                type="submit"
+                value="Wishlist"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Product Description -->
+        <div>
+          <div class="mb-4">
+            <h3>Description</h3>
+            <div class="descbox">
+              <div class="proddesc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+                nostrum debitis a deserunt non voluptatum consequuntur minus
+                eaque itaque ducimus nemo, perspiciatis magnam, sequi quibusdam
+                eius explicabo amet placeat dolore. Error odio facilis
+                doloremque, magni autem aut minus illo provident. Ratione iusto
+                dicta eaque, autem libero sint vitae amet architecto voluptatem?
+                Pariatur est deserunt accusantium facere tempore. Quibusdam,
+                nobis odio? Beatae, facere corporis. Adipisci tempora
+                repudiandae magni. Sequi, quaerat minus distinctio, architecto
+                consectetur delectus vel ullam repudiandae suscipit, nihil
+                officia iusto ex. Cupiditate nulla est quibusdam delectus saepe?
+                Saepe, numquam.
+              </div>
+            </div>
+          </div>
+          <!-- Product Review -->
+          <div>
+            <div>
+              <div style="display: flex; align-items: center">
+                <h3>Review</h3>
+                <div class="jc-sb" style="margin-left: 10px">
+                  <div style="margin-bottom: 0">
+                    <p style="margin-bottom: 0">(5.0/5.0)</p>
+                  </div>
+                  <div
+                    style="display: flex; margin-left: 5px; align-items: center"
+                  >
+                    <i data-feather="star"></i>
+                    <i data-feather="star"></i>
+                    <i data-feather="star"></i>
+                    <i data-feather="star"></i>
+                    <i data-feather="star"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reviewbox">
+                <div class="prodreview">
+                  <div class="mb-2" style="display: flex">
+                    <img
+                      src="/image/designecologist-Pmh0UoG1vlE-unsplash.jpg"
+                      alt="image"
+                      style="border-radius: 50%; height: 40px; width: 50px"
+                    />
+                    <h5
+                      style="
+                        margin-bottom: 0;
+                        align-items: center;
+                        display: flex;
+                        margin-left: 5px;
+                      "
+                    >
+                      Username
+                    </h5>
+                    <div class="jc-sb" style="margin-left: 10px">
+                      <div
+                        style="
+                          margin-bottom: 0;
+                          align-items: center;
+                          display: flex;
+                        "
+                      >
+                        <p style="margin-bottom: 0">(5.0/5.0)</p>
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          margin-left: 5px;
+                          align-items: center;
+                        "
+                      >
+                        <i data-feather="star"></i>
+                        <i data-feather="star"></i>
+                        <i data-feather="star"></i>
+                        <i data-feather="star"></i>
+                        <i data-feather="star"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Nihil corrupti nisi hic cumque, perspiciatis ex magni illum
+                    cum? Cum reprehenderit hic eaque. Atque repellat veniam
+                    alias sunt facere, excepturi quam? Assumenda ratione
+                    expedita repellendus, deleniti voluptates vel dolore,
+                    accusamus dolor reprehenderit, consequuntur ducimus ullam
+                    mollitia modi tempora iusto quo reiciendis quos! Cumque
+                    debitis necessitatibus beatae minus eligendi doloremque at
+                    nam. Unde impedit dolores ullam ipsam doloremque, commodi
+                    pariatur sint nemo assumenda quod iste nostrum laudantium
+                    repellendus repudiandae nisi veniam officiis officia rerum,
+                    facilis alias laboriosam veritatis possimus? Praesentium,
+                    debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div style="padding-top: 8px; background-color: rgb(200, 200, 200)">
+        <div class="container-fluid text-center text-dark">
+          <div class="row justify-content-lg-center">
+            <div class="col-lg-2 col-md-5 text-dark">
+              <div class="header">
+                <h5>Minify</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href="">Best Seller </a>
+                <a class="nav-link text-dark" href="">New Arrival</a>
+                <a class="nav-link text-dark" href="">Products</a>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-5">
+              <div class="header">
+                <h5>About Us</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href="">Company</a>
+                <a class="nav-link text-dark" href="">Terms</a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-5">
+              <div class="header">
+                <h5>FAQ</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href="">FAQ</a>
+                <a class="nav-link text-dark" href="">How To Order</a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-5">
+              <div class="header">
+                <h5>Contact Us</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href=""
+                  ><i data-feather="instagram"></i> Instagram</a
+                >
+                <a class="nav-link text-dark" href=""
+                  ><i data-feather="phone"></i> Instagram</a
+                >
+                <a class="nav-link text-dark" href=""
+                  ><i data-feather="mail"></i> Email</a
+                >
+              </div>
+            </div>
+          </div>
+          <div style="padding: 10px 0">&copy; MINIFY</div>
+        </div>
+
+        <script>
+          feather.replace();
+
+          function myFunction(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+
+            expandImg.src = imgs.src;
+
+            expandImg.parentElement.style.display = "block";
+          }
+
+          function upFunc() {
+            document.getElementById("count").stepUp(1);
+          }
+          function downFunc() {
+            document.getElementById("count").stepDown(1);
+          }
+        </script>
+      </div>
+    </footer>
+  </body>
+</html>

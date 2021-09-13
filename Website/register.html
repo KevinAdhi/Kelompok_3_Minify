@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Minify || Register</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .custom-select {
+        width: 13%;
+        margin-right: 5px;
+      }
+
+      .gender,
+      .dob {
+        width: 50%;
+      }
+
+      .btn {
+        margin: 10px 0;
+      }
+
+      .register {
+        /* border: 1px solid black; */
+        background-color: rgb(175, 175, 175);
+        padding: 40px;
+        /* width: 50%; */
+        /* margin: 5% 25%; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+      }
+
+      @media screen and (max-width: 800px) {
+        .gender,
+        .dob {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <nav
+        class="navbar navbar-expand-lg navbar-light"
+        style="
+          padding: 1% 2%;
+          display: flex;
+          flex-direction: column;
+          background-color: rgb(200, 200, 200);
+        "
+      >
+        <div style="display: flex; align-items: center">
+          <a class="navbar-brand fs-1" href="#">
+            <b>Minify</b>
+          </a>
+        </div>
+      </nav>
+    </section>
+
+    <!-- ISI -->
+    <div style="background-color: grey; padding: 5% 25%">
+      <div class="register">
+        <div>
+          <form>
+            <h1>Register</h1>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email : </label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username : </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputUsername1"
+                aria-describedby="usernameHelp"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Phone Number : </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputPhone1"
+                aria-describedby="phoneHelp"
+                placeholder="Phone Number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password :</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Confirm Password :</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputConfirmPassword1"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Address : </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputAddress1"
+                aria-describedby="addressHelp"
+                placeholder="Address"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputDOB1">Date Of Birth</label>
+              <div>
+                <input
+                  type="date"
+                  class="form-control dob"
+                  aria-describedby="addressHelp"
+                  id="dob"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputDOB1">Gender</label>
+              <div>
+                <select class="custom-select gender">
+                  <option selected>Gender</option>
+                  <option value="1">Man</option>
+                  <option value="2">Woman</option>
+                </select>
+              </div>
+            </div>
+
+            <p>Already have account? <a href="#">Login</a></p>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div style="padding-top: 8px; background-color: rgb(200, 200, 200)">
+        <div class="container-fluid text-center text-dark">
+          <div class="row justify-content-lg-center">
+            <div class="col-lg-2 col-md-5 text-dark">
+              <div class="header">
+                <h5>Minify</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href="">Best Seller </a>
+                <a class="nav-link text-dark" href="">New Arrival</a>
+                <a class="nav-link text-dark" href="">Products</a>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-5">
+              <div class="header">
+                <h5>About Us</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href="">Company</a>
+                <a class="nav-link text-dark" href="">Terms</a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-5">
+              <div class="header">
+                <h5>FAQ</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href="">FAQ</a>
+                <a class="nav-link text-dark" href="">How To Order</a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-5">
+              <div class="header">
+                <h5>Contact Us</h5>
+              </div>
+              <div>
+                <a class="nav-link text-dark" href=""
+                  ><i data-feather="instagram"></i> Instagram</a
+                >
+                <a class="nav-link text-dark" href=""
+                  ><i data-feather="phone"></i> Instagram</a
+                >
+                <a class="nav-link text-dark" href=""
+                  ><i data-feather="mail"></i> Email</a
+                >
+              </div>
+            </div>
+          </div>
+          <div style="padding: 10px 0">&copy; MINIFY</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
