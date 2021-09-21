@@ -139,7 +139,8 @@
         }
         #list-add-product div{
             align-items:flex-start;
-            margin: 2% 0;
+            padding: 2% 0;
+            border-bottom: 1px solid rgb(200, 200, 200);
         }
         /* media query */
         @media screen and (max-width: 770px) {
@@ -579,15 +580,15 @@
                     <h2>Tambah Produk</h2>
                     <form action="" class="container" onsubmit="return false">
                         <div class="row">
-                            <p class="col-2">Nama Produk :</p>
+                            <p class="col-lg-2">Nama Produk :</p>
                             <input class="col" type="text"  name="namaProduk">
                         </div>
                         <div class="row">
-                            <p class="col-2">Harga : </p>
+                            <p class="col-lg-2">Harga : </p>
                             <input class="col" type="number"  name="hargaProduk">
                         </div>
                         <div class="row">
-                            <p class="col-2">Kategori : </p>
+                            <p class="col-lg-2">Kategori : </p>
                             <select class="col" name="kategoriProduk" id="">
                                 <option value="Komputer">Komputer</option>
                                 <option value="Laptop">Laptop</option>
@@ -596,18 +597,18 @@
                             </select>
                         </div>
                         <div class="row">
-                            <p class="col-2"> Stok : </p>
+                            <p class="col-lg-2"> Stok : </p>
                             <input class="col" type="file"  name="fotoProduk">
                         </div>
                         <div class="row">
-                            <p class="col-2">Deskripsi : </p>
+                            <p class="col-lg-2">Deskripsi : </p>
                             <textarea  class="col" name="deskripsiProduk" id="" cols="50" rows="10" style="vertical-align:text-top;"></textarea>
                             
                         </div>     
-                        <div class="row">
-                            <div class="col-2"></div>
-                            <input id="add-product-submit" class="col-2" type="submit" value="Tambahkan Produk">  
-                        </div>
+                        <section class="row my-2">
+                            <p class="col-lg-2"></p>
+                            <input id="add-product-submit" class="col-lg-2" type="submit" value="Tambahkan Produk">  
+                        </section>
         
                     </form>
                 </div>
@@ -616,12 +617,12 @@
                     <h2>Tambah Kategori Produk</h2><br>
                     <form action="" class="container" onsubmit="return false">
                         <div class="row">
-                            <p class="col-2">Nama Kategori :</p>
+                            <p class="col-lg-2">Nama Kategori :</p>
                             <input class="col" type="text"  name="namaKategori">
                         </div>
                         <div class="row">
-                            <div class="col-2"></div>
-                            <input id="add-category-submit" class="col-2 my-3" type="submit" value="Tambahkan Kategori">  
+                            <div class="col-lg-2"></div>
+                            <input id="add-category-submit" class="col-lg-2 my-3" type="submit" value="Tambahkan Kategori">  
                         </div>
         
                     </form>
@@ -850,17 +851,20 @@
 
     </script>
 
-    <!-- script add product -->
+    <!-- script add product & categories-->
     <script>
 
 
         $("#add-product-submit").click(function(){
-            alert("Produk ditambahkan");
-            $("#backToCatalog").trigger("click");
+            if (confirm("Tambahkan produk?")) {
+                $("#backToCatalog").trigger("click");
+            }
+            
         });
         $("#add-category-submit").click(function(){
-            alert("Kategori ditambahkan");
-            $("#backToCatalog").trigger("click");
+            if (confirm("Tambahkan kategori?")) {
+                $("#backToCatalog").trigger("click");
+            }
         });
         $(".addBackBtn").click(function(){
             $("#backToCatalog").trigger("click");
