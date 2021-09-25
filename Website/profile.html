@@ -207,7 +207,20 @@
                 <p><b>Jenis Kelamin : </b> Pria</p>
                 <p><b>Tanggal Lahir : </b> xx/xx/xxxx</p>
                 <p><b>Password : </b> xxxxxxx</p>
-                <p><b>Alamat : </b> jl.xxxx xxxx komplek xxxx</p>
+                <div>
+                    <p>
+                        <span><b>Alamat : </b> </span>
+                        <select name="" id="selectAlamat">
+                            <option class="optionAlamat" value="jl.xxxx xxxx komplek xxxx 1">Alamat 1</option>
+                            <option class="optionAlamat" value="jl.xxxx xxxx komplek xxxx 2">Alamat 2</option>
+                            <option class="optionAlamat" value="jl.xxxx xxxx komplek xxxx 3">Alamat 3</option>
+                        </select>
+                    </p>
+                    <p id="viewAlamat"> 
+                        jl.xxxx xxxx komplek xxxx
+                    </p>
+                </div>
+               
             </div>
             
         </div>
@@ -295,6 +308,17 @@
 
         
     </script>
+        
+    <script>
+        $( "#selectAlamat" ).change(function() {
+            var str = "";
+            $( "select option:selected" ).each(function() {
+                str = $( this ).val();
+            });
+            $( "#viewAlamat" ).empty();
+            $( "#viewAlamat" ).text(str);
+        }).trigger( "change" );
+        </script>
     <!-- FOOTER -->
     <footer>
         <div style="padding-top: 2%; background-color: rgb(200, 200, 200);;">
