@@ -444,25 +444,25 @@
                 src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
                 alt="image"
                 class="image-option"
-                onclick="myFunction(this);"
+                onclick="image(this);"
               />
               <img
                 src="/image/alienware-Bp3KmTZQlfw-unsplash.jpg"
                 alt="image"
                 class="image-option"
-                onclick="myFunction(this);"
+                onclick="image(this);"
               />
               <img
                 src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
                 alt="image"
                 class="image-option"
-                onclick="myFunction(this);"
+                onclick="image(this);"
               />
               <img
                 src="/image/alienware-Bp3KmTZQlfw-unsplash.jpg"
                 alt="image"
                 class="image-option"
-                onclick="myFunction(this);"
+                onclick="image(this);"
               />
             </div>
           </div>
@@ -575,7 +575,7 @@
                   >
                 </p>
                 <a
-                  onclick="myFunction()"
+                  onclick="readMore()"
                   id="myBtn"
                   style="cursor: pointer; color: white"
                 >
@@ -875,7 +875,7 @@
     <script>
       feather.replace();
 
-      function myFunction(imgs) {
+      function image(imgs) {
         var expandImg = document.getElementById("expandedImg");
 
         expandImg.src = imgs.src;
@@ -895,7 +895,7 @@
         }
       }
 
-      function myFunction() {
+      function readMore() {
         var dots = document.getElementById("dots");
         var moreText = document.getElementById("showmore");
         var btnText = document.getElementById("myBtn");
