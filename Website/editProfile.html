@@ -370,15 +370,23 @@
           </div>
           <div class="row">
             <p class="col-lg-2">Alamat :</p>
-            <textarea
-              class="col"
-              name="alamatUser"
-              id=""
-              cols="50"
-              rows="3"
-              style="vertical-align: text-top"
-              placeholder="Jl.xxx xxx"
-            ></textarea>
+            <section class="col">
+              <select class="row" name="" id="selectAlamat">
+                <option class="optionAlamat">Alamat 1</option>
+                <option class="optionAlamat">Alamat 2</option>
+                <option class="optionAlamat">Alamat 3</option>
+              </select>
+              <br />
+              <textarea
+                class="row"
+                name="alamatUser"
+                id=""
+                cols="50"
+                rows="3"
+                style="vertical-align: text-top"
+                placeholder="Jl.xxx xxx"
+              ></textarea>
+            </section>
           </div>
           <section class="row my-2">
             <p class="col-lg-2"></p>
@@ -487,6 +495,7 @@
         }
       });
     </script>
+
     <!-- FOOTER -->
     <footer>
       <div style="padding-top: 2%; background-color: rgb(200, 200, 200)">
