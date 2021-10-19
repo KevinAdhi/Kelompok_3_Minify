@@ -1,6 +1,8 @@
+src="https://code.jquery.com/jquery-3.5.1.min.js";
+
 window.addEventListener("load", waitStart);
 
-// Globlas
+// Globals
 
 // Available Levels
 const levels = {
@@ -14,8 +16,10 @@ let currentLevel = levels.easy;
 
 let time = currentLevel;
 let score = 0;
-let isPlaying;
+let isPlaying = true;
 let maxScore;
+let countDown;
+let startCount;
 
 // DOM Elements
 const wordInput = document.querySelector("#word-input");
@@ -29,7 +33,6 @@ const highScoreElt = document.querySelector("#high-score");
 const easyBtn = document.querySelector("#easy");
 const mediumBtn = document.querySelector("#medium");
 const hardBtn = document.querySelector("#hard");
-const startBtn = document.querySelector("#start");
 
 const words = [
   "angular",
@@ -92,16 +95,16 @@ const words = [
   "bash",
 ];
 const messages = ["great", "wonderfull", "perfect", "awesome"];
-//option
-const settingOption = document.getElementById("optionBtn");
-const menuSlideElt = document.getElementById("menuSlide");
 
-settingOption.addEventListener("click", function () {
+//option
+const menuSlideElt = document.getElementById("menuSlide");
+$("#optionBtn").click( ()=>{
   menuSlideElt.classList.toggle("slideIn");
 });
 
+
 function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => startCount = setTimeout(resolve, ms));
 }
 
 // Seclect level
@@ -114,45 +117,66 @@ function setlevel(e) {
     currentLevel = levels.hard;
   }
   console.log(currentLevel);
-  seconds.innerHTML = currentLevel;
+  menuSlideElt.classList.toggle("slideIn");
+  waitStart();
 }
 
 function waitStart() {
-  // Show number of sec in UI
-  currentWord.innerHTML = "Click start";
-  startBtn.addEventListener("click", async function () {
+  // Messages
+  if(isPlaying){
+    currentWord.innerHTML = "Click start";
+    message.innerHTML = "";
+  }else{
+    currentWord.innerHTML = "Game Over";
+    message.innerHTML = "Click start to play again";
+  }
+  seconds.innerHTML = currentLevel;
+
+  //button start diklik
+  $("#start").click(async () => {
+    wordInput.value = "";
+    $("#start").prop('disabled', true);
     for (let i = 3; i > 0; i--) {
       currentWord.innerHTML = i;
+      console.log(i);
       await sleep(1000);
+      clearTimeout(startCount);
     }
+    clearTimeout(startCount);
+    console.log("done");
+    isPlaying = true;
+    
     init();
   });
+
 }
 
 // Initialize Game
 function init() {
-  waitStart();
   // Load word from array
   showWord(words);
-  isPlaying = true;
-  time = currentLevel + 1;
+  time = currentLevel;
+  timeDisplay.innerHTML = time;
+
   // Start matching on word input
   wordInput.addEventListener("input", startMatch);
   // Call countdown every second
-  setInterval(countdown, 1000);
-  // Check game status
-  setInterval(checkStatus, 50);
+  countDown = setInterval(countdown, 1000);
+  
   maxScore = localStorage.getItem("highScore");
+  scoreDisplay.innerHTML = score;
   highScoreElt.innerHTML = maxScore;
 }
 
-//Start match
+//Start match (Game udah jalan)
 function startMatch() {
   wordInput.value = wordInput.value.toLowerCase();
   if (matchWords()) {
-    isPlaying = true;
-    time = currentLevel + 1;
+    // isPlaying = true;
+    scoreDisplay.innerHTML = score;
+    time = currentLevel;
     showWord(words);
+    
     wordInput.value = "";
     if (currentLevel === levels.easy) {
       score++;
@@ -177,7 +201,6 @@ function startMatch() {
     }
   }
   maxScore = localStorage.getItem("highScore");
-  scoreDisplay.innerHTML = score;
   highScoreElt.innerHTML = maxScore;
 }
 
@@ -186,8 +209,6 @@ function matchWords() {
   if (wordInput.value === currentWord.innerHTML) {
     showMessage();
     return true;
-  } else {
-    return false;
   }
 }
 
@@ -207,7 +228,6 @@ function showMessage() {
 }
 
 // Countdown timer
-
 function countdown() {
   // Make sure time is not runout
   if (time > 0) {
@@ -216,19 +236,16 @@ function countdown() {
   } else if (time === 0) {
     // Game is over
     isPlaying = false;
+    score = 0;
+    clearInterval(countDown);
+    wordInput.value = "";
+    $("#start").prop('disabled', false);
+    waitStart();
   }
   // Show time
   timeDisplay.innerHTML = time;
 }
 
-// Check game status
-function checkStatus() {
-  if (!isPlaying && time === 0) {
-    message.innerHTML = "Click start to play again";
-    currentWord.innerHTML = "Game Over!";
-    score = 0;
-  }
-}
 
 easyBtn.addEventListener("click", setlevel);
 mediumBtn.addEventListener("click", setlevel);
