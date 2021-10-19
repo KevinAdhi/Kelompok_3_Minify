@@ -114,13 +114,11 @@ function setlevel(e) {
     currentLevel = levels.hard;
   }
   console.log(currentLevel);
-  waitStart();
+  seconds.innerHTML = currentLevel;
 }
 
 function waitStart() {
   // Show number of sec in UI
-  seconds.innerHTML = currentLevel;
-
   currentWord.innerHTML = "Click start";
   startBtn.addEventListener("click", async function () {
     for (let i = 3; i > 0; i--) {
@@ -133,6 +131,7 @@ function waitStart() {
 
 // Initialize Game
 function init() {
+  waitStart();
   // Load word from array
   showWord(words);
   isPlaying = true;
