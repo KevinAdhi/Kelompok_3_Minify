@@ -1,4 +1,4 @@
-src="https://code.jquery.com/jquery-3.5.1.min.js";
+src = "https://code.jquery.com/jquery-3.5.1.min.js";
 
 window.addEventListener("load", waitStart);
 
@@ -10,7 +10,7 @@ const levels = {
   medium: "medium",
   hard: "hard",
 };
-const initialTime =  60;
+const initialTime = 60;
 // To change level
 let currentLevel = levels.easy;
 
@@ -36,202 +36,120 @@ const mediumBtn = document.querySelector("#medium");
 const hardBtn = document.querySelector("#hard");
 
 const wordsEasy = [
-  "angular",
-  "magic",
   "brew",
-  "while",
-  "throw",
   "css",
-  "break",
-  "swing",
   "echo",
   "let",
   "wall",
-  "laughter",
   "hash",
-  "spinner",
   "beer",
-  "ninja",
-  "javascript",
-  "master",
-  "program",
-  "coding",
   "hero",
-  "learning",
   "work",
   "case",
-  "react",
-  "dragon",
   "rush",
   "api",
   "init",
-  "motion",
-  "google",
-  "float",
-  "damn",
-  "block",
-  "ranking",
+  "dash",
   "nice",
-  "machine",
-  "perfect",
-  "deploy",
-  "terminal",
-  "array",
   "vue",
   "node",
   "html",
-  "front",
   "grid",
-  "stack",
   "mac",
-  "console",
   "ajax",
-  "heroku",
   "loop",
   "sql",
   "php",
   "data",
   "npm",
-  "server",
   "bash",
+  "go",
+  "long",
+  "else",
 ];
 const wordsMed = [
-  "angular",
   "magic",
-  "brew",
   "while",
   "throw",
-  "css",
   "break",
   "swing",
-  "echo",
-  "let",
-  "wall",
-  "laughter",
-  "hash",
-  "spinner",
-  "beer",
   "ninja",
-  "javascript",
   "master",
-  "program",
   "coding",
-  "hero",
-  "learning",
-  "work",
-  "case",
   "react",
   "dragon",
-  "rush",
-  "api",
-  "init",
   "motion",
   "google",
   "float",
-  "damn",
   "block",
-  "ranking",
-  "nice",
-  "machine",
-  "perfect",
   "deploy",
-  "terminal",
   "array",
-  "vue",
-  "node",
-  "html",
   "front",
-  "grid",
   "stack",
-  "mac",
-  "console",
-  "ajax",
   "heroku",
-  "loop",
-  "sql",
-  "php",
-  "data",
-  "npm",
   "server",
-  "bash",
+  "respect",
+  "felony",
+  "among",
+  "shear",
+  "shorn",
+  "extend",
+  "except",
+  "learn",
+  "errors",
+  "thing",
 ];
 const wordsHard = [
-  "angular",
-  "magic",
-  "brew",
-  "while",
-  "throw",
-  "css",
-  "break",
-  "swing",
-  "echo",
-  "let",
-  "wall",
-  "laughter",
-  "hash",
-  "spinner",
-  "beer",
-  "ninja",
+  "presentation",
+  "subscription",
   "javascript",
-  "master",
-  "program",
-  "coding",
-  "hero",
+  "programming",
   "learning",
-  "work",
-  "case",
-  "react",
-  "dragon",
-  "rush",
-  "api",
-  "init",
-  "motion",
-  "google",
-  "float",
-  "damn",
-  "block",
-  "ranking",
-  "nice",
-  "machine",
-  "perfect",
-  "deploy",
+  "industrial",
+  "machinery",
+  "perfection",
   "terminal",
-  "array",
-  "vue",
-  "node",
-  "html",
-  "front",
-  "grid",
-  "stack",
-  "mac",
-  "console",
-  "ajax",
-  "heroku",
-  "loop",
-  "sql",
-  "php",
-  "data",
-  "npm",
-  "server",
-  "bash",
+  "proposal",
+  "researches",
+  "environment",
+  "completed",
+  "trousers",
+  "appreciate",
+  "subsequent",
+  "analyzes",
+  "remarkable",
+  "staggering",
+  "exaggerate",
+  "compliment",
+  "complexity",
+  "notification",
+  "incorporate",
+  "survival",
+  "extension",
+  "powershell",
+  "visualize",
+  "something",
+  "requirement",
 ];
 const messages = ["great", "wonderfull", "perfect", "awesome"];
 
 //option
 const menuSlideElt = document.getElementById("menuSlide");
-$("#optionBtn").click( ()=>{
+$("#optionBtn").click(() => {
   menuSlideElt.classList.toggle("slideIn");
 });
 
-function showEndMessage(){
-  var $score = $("<h3/>").addClass("appended").html(`<h3>Score : ${score}</h3>`);
+function showEndMessage() {
+  var $score = $("<h3/>")
+    .addClass("appended")
+    .html(`<h3>Score : ${score}</h3>`);
   var $pesan = $("<h3/>").addClass("appended").html(`<h3>Good Job!</h3>`);
-  $('#main-view').append($score);
-  $('#main-view').append($pesan);
+  $("#main-view").append($score);
+  $("#main-view").append($pesan);
 }
 
 function sleep(ms) {
-  return new Promise((resolve) => startCount = setTimeout(resolve, ms));
+  return new Promise((resolve) => (startCount = setTimeout(resolve, ms)));
 }
 
 // Seclect level
@@ -239,7 +157,7 @@ function setlevel(e) {
   if (e.target === easyBtn) {
     currentLevel = levels.easy;
   } else if (e.target === mediumBtn) {
-    currentLevel =  levels.medium;
+    currentLevel = levels.medium;
   } else if (e.target === hardBtn) {
     currentLevel = levels.hard;
   }
@@ -249,16 +167,16 @@ function setlevel(e) {
   menuSlideElt.classList.toggle("slideIn");
   clearInterval(countDown);
   wordInput.value = "";
-  $("#start").prop('disabled', false);
+  $("#start").prop("disabled", false);
   waitStart();
 }
 
 function waitStart() {
   // Messages
-  if(isPlaying){
+  if (isPlaying) {
     currentWord.innerHTML = "Click start";
     message.innerHTML = "";
-  }else{
+  } else {
     currentWord.innerHTML = `Time's up `;
     showEndMessage();
     message.innerHTML = "Click start to play again";
@@ -271,7 +189,7 @@ function waitStart() {
     $(":header").remove(".appended");
     score = 0;
     wordInput.value = "";
-    $("#start").prop('disabled', true);
+    $("#start").prop("disabled", true);
     for (let i = 3; i > 0; i--) {
       currentWord.innerHTML = i;
       console.log(i);
@@ -281,10 +199,9 @@ function waitStart() {
     clearTimeout(startCount);
     console.log("done");
     isPlaying = true;
-    
+
     init();
   });
-
 }
 
 // Initialize Game
@@ -298,7 +215,7 @@ function init() {
   wordInput.addEventListener("input", startMatch);
   // Call countdown every second
   countDown = setInterval(countdown, 1000);
-  
+
   maxScore = localStorage.getItem("highScore");
   scoreDisplay.innerHTML = score;
   highScoreElt.innerHTML = maxScore;
@@ -311,7 +228,7 @@ function startMatch() {
     // isPlaying = true;
     scoreDisplay.innerHTML = score;
     showWord();
-    
+
     wordInput.value = "";
     if (currentLevel === levels.easy) {
       score++;
@@ -377,16 +294,15 @@ function countdown() {
   } else if (time === 0) {
     // Game is over
     isPlaying = false;
-   
+
     clearInterval(countDown);
     wordInput.value = "";
-    $("#start").prop('disabled', false);
+    $("#start").prop("disabled", false);
     waitStart();
   }
   // Show time
   timeDisplay.innerHTML = time;
 }
-
 
 easyBtn.addEventListener("click", setlevel);
 mediumBtn.addEventListener("click", setlevel);
