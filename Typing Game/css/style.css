@@ -32,6 +32,9 @@ header{
     background: linear-gradient(to left, #B7E9F7, #7AD7F0, #B7E9F7); 
     color: white;
 }
+.text-center1{
+    font-family: fantasy;
+}
 .slide{
     position: absolute;
     background-color: rgb(255, 255, 255);
@@ -59,6 +62,7 @@ div button{
     cursor: pointer;
     border: none;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    font-family: fantasy;
 }
 #current-word{
     /* font-family: 'Source Code Pro', monospace; */

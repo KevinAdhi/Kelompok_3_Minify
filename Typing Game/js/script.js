@@ -223,7 +223,7 @@ const wordsHard = [
   "understanding",
   "unfortunately",
 ];
-const messages = ["great", "wonderfull", "perfect", "awesome"];
+const messages = ["great", "wonderful", "perfect", "awesome","keep it up","almost there"];
 
 //option
 const menuSlideElt = document.getElementById("menuSlide");
@@ -266,12 +266,12 @@ function setlevel(e) {
 function waitStart() {
   // Messages
   if (isPlaying) {
-    currentWord.innerHTML = "Click start";
+    currentWord.innerHTML = "Click Start";
     message.innerHTML = "";
   } else {
-    currentWord.innerHTML = `Time's up `;
+    currentWord.innerHTML = `Time's Up `;
     showEndMessage();
-    message.innerHTML = "Click start to play again";
+    message.innerHTML = "Click Start to Play Again";
   }
   seconds.innerHTML = initialTime;
   difficulty.innerHTML = currentLevel;
