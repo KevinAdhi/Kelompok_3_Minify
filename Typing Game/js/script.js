@@ -223,7 +223,14 @@ const wordsHard = [
   "understanding",
   "unfortunately",
 ];
-const messages = ["great", "wonderful", "perfect", "awesome","keep it up","almost there"];
+const messages = [
+  "great",
+  "wonderful",
+  "perfect",
+  "awesome",
+  "keep it up",
+  "almost there",
+];
 
 //option
 const menuSlideElt = document.getElementById("menuSlide");
@@ -326,10 +333,10 @@ function startMatch() {
       score++;
     }
     if (currentLevel === levels.medium) {
-      score += 2;
+      score++;
     }
     if (currentLevel === levels.hard) {
-      score += 3;
+      score++;
     }
   }
 

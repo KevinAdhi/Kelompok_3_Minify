@@ -22,16 +22,22 @@
       <h1 id="optionBtn">Typing Game Menu</h1>
     </header>
 
-    <div class="slide" id="menuSlide" >
+    <div class="slide" id="menuSlide">
       <!-- Introductions -->
       <div class="menuInfo row mt-5">
         <div class="container col-md-8">
-          <div class="menuCard card card-body bg-primary text-white" style="font-family: fantasy;">
+          <div
+            class="menuCard card card-body bg-primary text-white"
+            style="font-family: fantasy"
+          >
             <h5>Instructions</h5>
-            <p>Type each word in the box to score with given amount of 60 seconds.</p>
+            <p>
+              Type each word in the box to score with given amount of 60
+              seconds.
+            </p>
           </div>
           <div class="menuCard mt-5 card card-body bg-primary text-white">
-            <h5 style="font-family: fantasy;">Choose Your Difficulty!</h5>
+            <h5 style="font-family: fantasy">Choose Your Difficulty!</h5>
             <div class="col-md-12">
               <div class="easyBtn">
                 <button id="easy">easy</button>
@@ -52,19 +58,20 @@
     <div class="container text-center">
       <!-- Word input -->
       <div class="row">
-        <div class="col-md-8 mx-auto" >
+        <div class="col-md-8 mx-auto">
           <p class="intro">
             Type the given word within
             <span class="text-success" id="seconds"></span> Seconds:
           </p>
-          <div id = "main-view">
+          <br /><br /><br />
+          <div id="main-view">
             <h2 class="display-2 mb-3" id="current-word"></h2>
           </div>
-          
           <h4 class="mt-2" id="message"></h4>
           <input
             type="text"
             class="form-control form-control-lg"
+            style="text-align: center"
             placeholder="Start typing..."
             id="word-input"
             autofocus
@@ -82,6 +89,7 @@
               <h3>Score: <span id="score">0</span></h3>
             </div>
             <div class="col-md-12">
+              <br />
               <h4>High score: <span id="high-score">0</span></h4>
               <button id="start">Start</button>
             </div>
@@ -92,6 +100,4 @@
   </body>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="js/script.js"></script>
-  
-  
 </html>
