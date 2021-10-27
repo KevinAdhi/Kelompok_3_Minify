@@ -5,3 +5,4 @@ Anggota Kelompok :
 3. Richard Stephen - 535200058
 4. Wendi Bunandi - 535200066
 5. Hongi Nagaputra - 535200082
+6. Philip Bryan Halim - 535160026
