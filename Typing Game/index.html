@@ -18,7 +18,7 @@
     <title>Typing Game</title>
   </head>
   <body class="text-center">
-    <header class="text-center">
+    <header class="text-center1">
       <h1 id="optionBtn">Typing Game Menu</h1>
     </header>
 
@@ -26,16 +26,28 @@
       <!-- Introductions -->
       <div class="menuInfo row mt-5">
         <div class="container col-md-8">
-          <div class="menuCard card card-body bg-primary text-white">
+          <div
+            class="menuCard card card-body bg-primary text-white"
+            style="font-family: fantasy"
+          >
             <h5>Instructions</h5>
-            <p>Type each word in the given amount of seconds to score.</p>
+            <p>
+              Type each word in the box to score with given amount of 60
+              seconds.
+            </p>
           </div>
           <div class="menuCard mt-5 card card-body bg-primary text-white">
-            <h5>Choose your difficulty</h5>
+            <h5 style="font-family: fantasy">Choose Your Difficulty!</h5>
             <div class="col-md-12">
-              <button id="easy">easy</button>
-              <button id="medium">med</button>
-              <button id="hard">hard</button>
+              <div class="easyBtn">
+                <button id="easy">easy</button>
+              </div>
+              <div class="medBtn">
+                <button id="medium">med</button>
+              </div>
+              <div class="hardBtn">
+                <button id="hard">hard</button>
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +63,7 @@
             Type the given word within
             <span class="text-success" id="seconds"></span> Seconds:
           </p>
+          <br />
           <div id="main-view">
             <h2 class="display-2 mb-3" id="current-word"></h2>
           </div>
@@ -58,6 +71,7 @@
           <input
             type="text"
             class="form-control form-control-lg"
+            style="text-align: center"
             placeholder="Start typing..."
             id="word-input"
             autofocus
@@ -75,6 +89,7 @@
               <h3>Score: <span id="score">0</span></h3>
             </div>
             <div class="col-md-12">
+              <br />
               <h4>High score: <span id="high-score">0</span></h4>
               <button id="start">Start</button>
             </div>
