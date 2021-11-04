@@ -1,192 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Order || Minify</title>
-  </head>
-
-  <body>
-    <!-- ISI -->
-    <%- include('../layouts/navbar.ejs') %>
-    <section>
-      <div style="padding: 40px; background-color: grey">
-        <div class="mb-4">
-          <h1 style="color: white">Checkout</h1>
+<section>
+  <div style="padding: 40px; background-color: grey">
+    <div class="mb-4">
+      <h1 style="color: white">Checkout</h1>
+    </div>
+    <div style="background-color: rgb(175, 175, 175); padding: 2%">
+      <i data-feather="shopping-cart" class="mx-5" style="float: right"></i
+      ><br /><br />
+      <div class="row mx-5">
+        <!-- Detail Produk -->
+        <div class="col-md-2 mt-2">
+          <img
+            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
+            alt="detailImg"
+            style="
+              width: 100%;
+              max-width: 250px;
+              min-width: 90px;
+              min-height: 80px;
+            "
+          />
         </div>
-        <div style="background-color: rgb(175, 175, 175); padding: 2%">
-          <i data-feather="shopping-cart" class="mx-5" style="float: right"></i
-          ><br /><br />
-          <div class="row mx-5">
-            <!-- Detail Produk -->
-            <div class="col-md-2 mt-2">
-              <img
-                src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
-                alt="detailImg"
-                style="
-                  width: 100%;
-                  max-width: 250px;
-                  min-width: 90px;
-                  min-height: 80px;
-                "
+        <div class="col-md-8 mt-2">
+          <p class="fs-5">Product Name...</p>
+        </div>
+        <div class="col-md-2 mt-2">
+          <p class="fs-5 text-md-end text-sm-start">RP.xxx.xxx</p>
+        </div>
+
+        <div class="col-md-2 mt-2">
+          <img
+            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
+            alt="detailImg"
+            style="
+              width: 100%;
+              max-width: 250px;
+              min-width: 90px;
+              min-height: 80px;
+            "
+          />
+        </div>
+        <div class="col-md-8 mt-2">
+          <p class="fs-5">Product Name...</p>
+        </div>
+        <div class="col-md-2 mt-2">
+          <p class="fs-5 text-md-end text-sm-start">RP.xxx.xxx</p>
+        </div>
+
+        <br />
+        <hr />
+        <p class="fs-5 text-md-end text-sm-start">
+          Total Produk: Rp. xxx.xxx,xx
+        </p>
+
+        <!-- Form Pembayaran & Pengiriman -->
+        <form action="/payment" class="needs-validation" novalidate>
+          <div class="row mb-3">
+            <label for="address" class="col-sm-12 col-md-2 col-form-label fs-5"
+              >Alamat:</label
+            >
+            <div class="col-sm-12 col-md-10">
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                style="font-size: large"
+                placeholder="Masukkan Alamat"
+                required
               />
-            </div>
-            <div class="col-md-8 mt-2">
-              <p class="fs-5">Product Name...</p>
-            </div>
-            <div class="col-md-2 mt-2">
-              <p class="fs-5 text-md-end text-sm-start">RP.xxx.xxx</p>
-            </div>
-
-            <div class="col-md-2 mt-2">
-              <img
-                src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
-                alt="detailImg"
-                style="
-                  width: 100%;
-                  max-width: 250px;
-                  min-width: 90px;
-                  min-height: 80px;
-                "
-              />
-            </div>
-            <div class="col-md-8 mt-2">
-              <p class="fs-5">Product Name...</p>
-            </div>
-            <div class="col-md-2 mt-2">
-              <p class="fs-5 text-md-end text-sm-start">RP.xxx.xxx</p>
-            </div>
-
-            <br />
-            <hr />
-            <p class="fs-5 text-md-end text-sm-start">
-              Total Produk: Rp. xxx.xxx,xx
-            </p>
-
-            <!-- Form Pembayaran & Pengiriman -->
-            <form action="/payment" class="needs-validation" novalidate>
-              <div class="row mb-3">
-                <label
-                  for="address"
-                  class="col-sm-12 col-md-2 col-form-label fs-5"
-                  >Alamat:</label
-                >
-                <div class="col-sm-12 col-md-10">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="address"
-                    style="font-size: large"
-                    placeholder="Masukkan Alamat"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Masukkan alamat pengiriman anda.
-                  </div>
-                </div>
+              <div class="invalid-feedback">
+                Masukkan alamat pengiriman anda.
               </div>
-              <div class="row mb-3">
-                <label
-                  for="payment"
-                  class="col-sm-12 col-md-2 col-form-label fs-5"
-                  >Payment:</label
-                >
-                <div class="col-sm col-md-6">
-                  <select
-                    name="pembayaran"
-                    class="form-select"
-                    style="font-size: large"
-                    required
-                  >
-                    <option value>Pilih Pembayaran</option>
-                    <option value="bayar1">Opsi 1</option>
-                    <option value="bayar2">Opsi 2</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Pilih metode pembayaran anda.
-                  </div>
-                </div>
-                <label
-                  for="payment"
-                  class="col-sm-6 col-md-4 col-form-label fs-5 text-end"
-                  >Metode pembayaran yang dipilih</label
-                >
-              </div>
-
-              <div class="row mb-3">
-                <label
-                  for="pengiriman"
-                  class="col-sm-12 col-md-2 col-form-label fs-5"
-                  >Pengiriman:</label
-                >
-                <div class="col-sm col-md-6">
-                  <select
-                    name="pengiriman"
-                    class="form-select"
-                    style="font-size: large"
-                    required
-                  >
-                    <option value>Pilih Kurir</option>
-                    <option value="kurir1">Opsi 1</option>
-                    <option value="kurir2">Opsi 2</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Pilih kurir pengiriman anda.
-                  </div>
-                </div>
-                <label
-                  for="payment"
-                  class="col-sm-5 col-md-2 col-form-label fs-5 text-end"
-                  >Kurir yang dipilih:
-                </label>
-                <label
-                  for="payment"
-                  class="col-sm col-md-2 col-form-label fs-5 text-end"
-                  >RP. xxx.xxx</label
-                >
-              </div>
-
-              <!-- Detail Harga -->
-              <div class="col-12">
-                <p class="fs-5">Invoice:</p>
-              </div>
-              <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-7 fs-5">Produk:</div>
-                <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-7 fs-5">Ongkir:</div>
-                <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-7 fs-5">Pajak:</div>
-                <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-7 fs-5">Potongan:</div>
-                <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
-                <hr class="my-4" />
-                <div class="col-sm-1 col-md-2"></div>
-                <div class="col-sm-7 col-md-8 fs-5 mb-5 text-end">
-                  Total yang harus dibayar:
-                </div>
-                <div class="col-sm-4 col-md-2 fs-5 text-end">
-                  RP. xxx.xxx,xx
-                </div>
-              </div>
-
-              <!-- Tombol Order -->
-              <button
-                class="btn btn-outline-dark btn-lg my-2"
-                style="width: 150px; float: right"
-                type="submit"
-              >
-                Order
-              </button>
-            </form>
+            </div>
           </div>
-        </div>
+          <div class="row mb-3">
+            <label for="payment" class="col-sm-12 col-md-2 col-form-label fs-5"
+              >Payment:</label
+            >
+            <div class="col-sm col-md-6">
+              <select
+                name="pembayaran"
+                class="form-select"
+                style="font-size: large"
+                required
+              >
+                <option value>Pilih Pembayaran</option>
+                <option value="bayar1">Opsi 1</option>
+                <option value="bayar2">Opsi 2</option>
+              </select>
+              <div class="invalid-feedback">Pilih metode pembayaran anda.</div>
+            </div>
+            <label
+              for="payment"
+              class="col-sm-6 col-md-4 col-form-label fs-5 text-end"
+              >Metode pembayaran yang dipilih</label
+            >
+          </div>
+
+          <div class="row mb-3">
+            <label
+              for="pengiriman"
+              class="col-sm-12 col-md-2 col-form-label fs-5"
+              >Pengiriman:</label
+            >
+            <div class="col-sm col-md-6">
+              <select
+                name="pengiriman"
+                class="form-select"
+                style="font-size: large"
+                required
+              >
+                <option value>Pilih Kurir</option>
+                <option value="kurir1">Opsi 1</option>
+                <option value="kurir2">Opsi 2</option>
+              </select>
+              <div class="invalid-feedback">Pilih kurir pengiriman anda.</div>
+            </div>
+            <label
+              for="payment"
+              class="col-sm-5 col-md-2 col-form-label fs-5 text-end"
+              >Kurir yang dipilih:
+            </label>
+            <label
+              for="payment"
+              class="col-sm col-md-2 col-form-label fs-5 text-end"
+              >RP. xxx.xxx</label
+            >
+          </div>
+
+          <!-- Detail Harga -->
+          <div class="col-12">
+            <p class="fs-5">Invoice:</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7 fs-5">Produk:</div>
+            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7 fs-5">Ongkir:</div>
+            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7 fs-5">Pajak:</div>
+            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7 fs-5">Potongan:</div>
+            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <hr class="my-4" />
+            <div class="col-sm-1 col-md-2"></div>
+            <div class="col-sm-7 col-md-8 fs-5 mb-5 text-end">
+              Total yang harus dibayar:
+            </div>
+            <div class="col-sm-4 col-md-2 fs-5 text-end">RP. xxx.xxx,xx</div>
+          </div>
+
+          <!-- Tombol Order -->
+          <button
+            class="btn btn-outline-dark btn-lg my-2"
+            style="width: 150px; float: right"
+            type="submit"
+          >
+            Order
+          </button>
+        </form>
       </div>
-    </section>
-    <%- include('../layouts/footer.ejs') %>
-  </body>
-</html>
+    </div>
+  </div>
+</section>
