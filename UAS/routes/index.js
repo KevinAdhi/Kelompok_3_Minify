@@ -3,69 +3,53 @@ const Product = require("../models/product");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.render("pages/index", { title: "Document" });
+    res.render("pages/index");
 });
 router.get("/homePage", (req, res) => {
-  res.render("pages/homePage", { title: "Home Page || Minify" });
+    res.render("pages/homePage");
 });
 router.get("/checkout", (req, res) => {
-  res.render("pages/checkout", { title: "Checkout || Minify" });
+    res.render("pages/checkout");
 });
 router.get("/payment", (req, res) => {
-  res.render("pages/payment", { title: "Payment || Minify" });
+    res.render("pages/payment");
 });
 router.get("/myorder", (req, res) => {
-  res.render("pages/myorder", { title: "My Order || Minify" });
+    res.render("pages/myorder");
 });
 router.get("/myOrderDetails", (req, res) => {
-  res.render("pages/myOrderDetails", { title: "My Order Details || Minify" });
+    res.render("pages/myOrderDetails");
 });
 router.get("/message", (req, res) => {
-  res.render("pages/message", { title: "Message || Minify" });
+    res.render("pages/message");
 });
 router.get("/dashboard", (req, res) => {
-  res.render("pages/dashboard", { title: "Dashboard || Minify" });
+    res.render("pages/dashboard");
 });
 
 router.get("/chat-room", (req, res) => {
-  res.render("pages/chatRoom", { title: "Chat Room || Minify" });
+    res.render("pages/chatRoom");
 });
 
 router.get("/profile", (req, res) => {
-  res.render("pages/profile", { title: "Profile || Minify" });
+    res.render("pages/profile");
 });
 
 router.get("/edit-profile", (req, res) => {
-  res.render("pages/editProfile", { title: "Edit Profile || Minify" });
+    res.render("pages/editProfile");
 });
 
 router.get("/edit-product", (req, res) => {
-  res.render("pages/editProduct", { title: "Edit Product || Minify" });
+    res.render("pages/editProduct");
 });
 
 router.get("/product", async (req, res) => {
-  var data = await Product.find();
-  res.render("pages/product", { title: "Product || Minify", products: data });
+    var data = await Product.find();
+    res.render("pages/product", { products: data });
 });
 
-router.get("/login", (req, res) => {
-  res.render("pages/logIn", { title: "Log In || Minify" }); 
-}); 
-
-router.get("/Company", (req, res) => {
-  res.render("pages/Company", { title: "Company || Minify" }); 
-}); 
-
-router.get("/FAQ", (req, res) => {
-  res.render("pages/FAQ", { title: "FAO || Minify" }); 
-}); 
-
-router.get("/Terms", (req, res) => {
-  res.render("pages/Terms", { title: "Terms & Conditions || Minify" }); 
-}); 
-
-router.get("/HowToOrder", (req, res) => {
-  res.render("pages/HowToOrder", { title: "How To Order || Minify" }); 
-}); 
+router.get("/log-in", (req, res) => {
+    res.render("pages/logIn");
+});
 
 module.exports = router;
