@@ -26,7 +26,6 @@ router.get("/message", (req, res) => {
 router.get("/dashboard", (req, res) => {
   res.render("pages/dashboard", { title: "Dashboard || Minify" });
 });
-
 router.get("/chat-room", (req, res) => {
   res.render("pages/chatRoom", { title: "Chat Room || Minify" });
 });

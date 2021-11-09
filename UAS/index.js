@@ -1,6 +1,8 @@
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const socket = require("socket.io");
 
 const app = express();
 const PORT = 3000;
