@@ -47,4 +47,17 @@ router.get("/product", async (req, res) => {
   res.render("pages/product", { products: data });
 });
 
+router.get("/bestseller", (req, res) => {
+  res.render("pages/bestseller");
+});
+router.get("/bestseller", (req, res) => {
+  res.render("pages/register");
+});
+router.get("/bestseller", (req, res) => {
+  res.render("pages/productdetails");
+});
+router.get("/bestseller", (req, res) => {
+  res.render("pages/wishlist");
+});
+
 module.exports = router;
