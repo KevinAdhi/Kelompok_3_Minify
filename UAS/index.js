@@ -1,5 +1,6 @@
 const express = require("express");
 const layouts = require("express-ejs-layouts");
+const mongoose = require("mongoose");
 
 const app = express();
 const PORT = 3000;
@@ -16,14 +17,26 @@ app.set("layout extractScripts", true);
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+mongoose.connect(
+  "mongodb+srv://Minify:zsXWMuraB0Hozzxc@cluster0.bf5ez.mongodb.net/Minify?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+  }
+);
+const db = mongoose.connection;
+
+db.once("open", () => {
+  console.log("Succesfully connected to MongoDB using Mongoose!");
+});
+
 const indexRouter = require("./routes/index");
 
 app.use("/", indexRouter);
 
 app.get("/", (req, res) => {
-    res.render("pages/index");
+  res.render("pages/index");
 });
 
 app.listen(PORT, () => {
-    console.log(`Server Berjalan di port ${PORT}`);
+  console.log(`Server Berjalan di port ${PORT}`);
 });
