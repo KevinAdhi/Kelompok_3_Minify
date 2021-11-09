@@ -51,4 +51,17 @@ router.get("/log-in", (req, res) => {
     res.render("pages/logIn");
 });
 
+router.get("/bestseller", (req, res) => {
+  res.render("pages/bestseller");
+});
+router.get("/bestseller", (req, res) => {
+  res.render("pages/register");
+});
+router.get("/bestseller", (req, res) => {
+  res.render("pages/productdetails");
+});
+router.get("/bestseller", (req, res) => {
+  res.render("pages/wishlist");
+});
+
 module.exports = router;
