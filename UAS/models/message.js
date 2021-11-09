@@ -9,13 +9,13 @@ const messageSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    required: true,
-  },
   message: {
     type: String,
     required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now(),
   },
 });
 
