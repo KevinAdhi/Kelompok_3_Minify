@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
   imagePath: {
     type: String,
-    required: true,
+    required: false,
   },
-  name: {
+  username: {
     type: String,
     required: true,
   },
@@ -25,16 +25,12 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  noHP: {
+  phone: {
     type: Number,
     required: true,
   },
-  tglLahir: {
+  birthDate: {
     type: Date,
-    required: true,
-  },
-  noHP: {
-    type: Number,
     required: true,
   },
 });

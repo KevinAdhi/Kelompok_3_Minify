@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
@@ -9,7 +10,7 @@ const PORT = 3000;
 
 // use layouts
 app.use(layouts);
-app.set("layout", "layouts/main.ejs");
+app.set("layout", path.join(__dirname, 'views/layouts/main.ejs'));
 
 // place all styles block in the layout at the head
 app.set("layout extractStyles", true);
@@ -29,7 +30,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 mongoose.connect(
-    "mongodb+srv://Minify:zsXWMuraB0Hozzxc@cluster0.bf5ez.mongodb.net/Minify?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/webpro?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
     {
         useNewUrlParser: true,
     }
@@ -52,8 +53,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/", indexRouter);
 app.use("/user", userRouter);
+app.use("/", indexRouter);
 
 app.get("/", (req, res) => {
     res.render("pages/index");

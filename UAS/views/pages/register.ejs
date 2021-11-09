@@ -1,0 +1,197 @@
+<div style="background-color: grey; padding: 5% 25%">
+    <div class="register">
+      <div>
+        <form action="/user/register" method="POST">
+          <h1>Register</h1>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email : </label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username : </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputUsername1"
+              aria-describedby="usernameHelp"
+              placeholder="Username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Phone Number : </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPhone1"
+              aria-describedby="phoneHelp"
+              placeholder="Phone Number"
+              name="phone"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password :</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Confirm Password :</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputConfirmPassword1"
+              placeholder="Confirm Password"
+              name="confirm"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Address : </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputAddress1"
+              aria-describedby="addressHelp"
+              placeholder="Address"
+              name="address"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputDOB1">Date Of Birth</label>
+            <div>
+              <input
+                type="date"
+                class="form-control dob"
+                aria-describedby="addressHelp"
+                id="dob"
+                name="birthDate"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputDOB1">Gender</label>
+            <div>
+              <select class="custom-select gender" name="gender">
+                <option selected>Gender</option>
+                <option value="man">Man</option>
+                <option value="woman">Woman</option>
+              </select>
+            </div>
+          </div>
+
+          <p>Already have account? <a href="login.html">Login</a></p>
+
+          <button
+            type="submit"
+            class="btnRegister btn btn-primary"
+            style="background-color: white; color: black; border: none"
+          >
+            Register
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- button sementara -->
+  <div style="position: fixed; right: 2%; bottom: 2%; z-index: 2">
+    <!-- Default dropup button -->
+    <div class="btn-group dropup">
+      <button
+        type="button"
+        class="btn btn-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Change User
+      </button>
+      <ul class="dropdown-menu">
+        <!-- Dropdown menu links -->
+        Hanya Sementara
+        <li class="dropdown-divider"></li>
+        <li role="button" id="toNoUsr">No User</li>
+        <li role="button" id="toConsumer">Consumer</li>
+        <li role="button" id="toOwner">Owner</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <script>
+    var toNoUsr = document.getElementById("toNoUsr");
+    var toConsumer = document.getElementById("toConsumer");
+    var toOwner = document.getElementById("toOwner");
+
+    var cart = document.getElementById("cartBtn");
+    var consumerBtn = document.getElementById("consumerBtn");
+    var ownerBtn = document.getElementById("ownerBtn");
+    var regisLogIn = document.getElementById("regisLogIn");
+
+    var cartResp = document.getElementById("cartResp");
+    var consumerBtnResp = document.getElementById("consumerResp");
+    var ownerBtnResp = document.getElementById("ownerResp");
+    var regisLogInResp = document.getElementById("regisLogInResp");
+
+    function noUserState() {
+      cart.style.display = "none";
+      consumerBtn.style.display = "none";
+      ownerBtn.style.display = "none";
+      regisLogIn.style.display = "initial";
+
+      cartResp.style.display = "none";
+      consumerResp.style.display = "none";
+      ownerResp.style.display = "none";
+      regisLogInResp.style.display = "initial";
+    }
+
+    noUserState();
+
+    toNoUsr.onclick = noUserState;
+
+    toConsumer.onclick = function () {
+      cart.style.display = "initial";
+      consumerBtn.style.display = "initial";
+      ownerBtn.style.display = "none";
+      regisLogIn.style.display = "none";
+
+      cartResp.style.display = "initial";
+      consumerResp.style.display = "initial";
+      ownerResp.style.display = "none";
+      regisLogInResp.style.display = "none";
+    };
+    toOwner.onclick = function () {
+      cart.style.display = "none";
+      consumerBtn.style.display = "none";
+      ownerBtn.style.display = "initial";
+      regisLogIn.style.display = "none";
+
+      cartResp.style.display = "none";
+      consumerResp.style.display = "none";
+      ownerResp.style.display = "initial";
+      regisLogInResp.style.display = "none";
+    };
+
+    $(".logoutBtn").click(noUserState);
+  </script>

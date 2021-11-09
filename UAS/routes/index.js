@@ -5,6 +5,15 @@ const router = express.Router();
 router.get("/", (req, res) => {
     res.render("pages/index");
 });
+
+router.get("/log-in", (req, res) => {
+    res.render("pages/login");
+});
+
+router.get("/register", (req, res) => {
+    res.render("pages/register");
+});
+
 router.get("/homePage", (req, res) => {
     res.render("pages/homePage");
 });
@@ -46,10 +55,6 @@ router.get("/edit-product", (req, res) => {
 router.get("/product", async (req, res) => {
     var data = await Product.find();
     res.render("pages/product", { products: data });
-});
-
-router.get("/log-in", (req, res) => {
-    res.render("pages/logIn");
 });
 
 module.exports = router;
