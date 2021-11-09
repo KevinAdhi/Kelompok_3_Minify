@@ -48,8 +48,24 @@ router.get("/product", async (req, res) => {
   res.render("pages/product", { title: "Product || Minify", products: data });
 });
 
-router.get("/log-in", (req, res) => {
-  res.render("pages/logIn", { title: "Log In || Minify" });
-});
+router.get("/login", (req, res) => {
+  res.render("pages/logIn", { title: "Log In || Minify" }); 
+}); 
+
+router.get("/Company", (req, res) => {
+  res.render("pages/Company", { title: "Company || Minify" }); 
+}); 
+
+router.get("/FAQ", (req, res) => {
+  res.render("pages/FAQ", { title: "FAO || Minify" }); 
+}); 
+
+router.get("/Terms", (req, res) => {
+  res.render("pages/Terms", { title: "Terms & Conditions || Minify" }); 
+}); 
+
+router.get("/HowToOrder", (req, res) => {
+  res.render("pages/HowToOrder", { title: "How To Order || Minify" }); 
+}); 
 
 module.exports = router;
