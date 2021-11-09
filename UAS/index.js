@@ -3,6 +3,7 @@ const express = require("express");
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const socket = require("socket.io");
 const session = require("express-session");
 
 const app = express();
