@@ -1,195 +1,84 @@
 <style>
-    .card {
-      background-color: white;
-      border-width: 2px;
-    }
-    .card-body {
-      color: black;
-    }
-    .img-thumbnail {
-      height: 200px;
-      max-width: 100%;
-      width: 250px;
-      max-height: 100%;
-    }
-  </style>
+  .card {
+    background-color: white;
+    border-width: 2px;
+  }
+  .card-body {
+    color: black;
+  }
+  .img-thumbnail {
+    height: 200px;
+    max-width: 100%;
+    width: 250px;
+    max-height: 100%;
+  }
+</style>
 
-    <!-- ISI -->
-    <section>
-        <div style="background-color: #7a7373">
+<!-- ISI -->
+<section>
+  <div style="background-color: #7a7373">
+    <br /><br />
+    <div class="container-sm py-4" style="background-color: #c4c4c4">
+      <div class="row mx-5">
+        <div
+          class="text-left"
+          style="margin-top: 50px; font-size: 30px; font-weight: bold"
+        >
+          <label for="headerText">Cart</label>
           <br /><br />
-          <div class="container-sm py-4" style="background-color: #c4c4c4">
-            <div class="row mx-5">
-              <div
-                class="text-left"
-                style="margin-top: 50px; font-size: 30px; font-weight: bold"
-              >
-                <label for="headerText">Cart</label>
-                <br /><br />
-              </div>
-            </div>
-            <div class="row mx-5">
-              <div class="col-lg-12">
-                <div class="card mb-5">
-                  <div class="card-body">
-                    <div class="row mb-1">
-                      <div class="col-md-5 col-lg-3 col-xl-3">
-                        <div
-                          class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0"
-                        >
-                          <img
-                            src="../../public/image/img1.jpg"
-                            alt=""
-                            class="img-thumbnail"
-                          />
-                        </div>
+        </div>
+      </div>
+      <div class="row mx-5">
+        <div class="col-lg-12">
+          <div class="card mb-5">
+            <div class="card-body">
+              <div class="row mb-1">
+                <div class="col-md-5 col-lg-3 col-xl-3">
+                  <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                    <img src="/image/img1.jpg" alt="" class="img-thumbnail" />
+                  </div>
+                </div>
+                <div class="col-md-7 col-lg-9 col-xl-9">
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <div class="mt-5">
+                        <h5>Mouse Gaming Logitech G102</h5>
+                        <p class="mb-2 text-uppercase small">Product Info</p>
+                        <p class="mb-3 text-uppercase small">Ready Stock</p>
                       </div>
-                      <div class="col-md-7 col-lg-9 col-xl-9">
-                        <div>
-                          <div class="d-flex justify-content-between">
-                            <div class="mt-5">
-                              <h5>Mouse Gaming Logitech G102</h5>
-                              <p class="mb-2 text-uppercase small">
-                                Product Info
-                              </p>
-                              <p class="mb-3 text-uppercase small">Ready Stock</p>
-                            </div>
-                            <!--Button Kanan-->
-  
-                            <div class="row mt-5 me-0 m">
-                              <div class="mb-0 w-100">
-                                <div class="input-group">
-                                  <span class="input-group-btn">
-                                    <button
-                                      type="button"
-                                      class="btn btn-default btn-number"
-                                      onclick="minus('inputNum1')"
-                                    >
-                                      <i data-feather="minus-square"></i></button
-                                  ></span>
-                                  <input
-                                    type="text"
-                                    disabled="disabled"
-                                    value="1"
-                                    class="
-                                      form-control
-                                      input-number
-                                      form-select-sm
-                                    "
-                                    id="inputNum1"
-                                  />
-                                  <span class="input-group-btn">
-                                    <button
-                                      type="button"
-                                      class="btn btn-default btn-number"
-                                      onclick='add("inputNum1")'
-                                    >
-                                      <i data-feather="plus-square"></i></button
-                                  ></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="mt-5 me-4" style="font-size: x-large">
-                              <p>Rp xxx.xxx</p>
-                            </div>
+                      <!--Button Kanan-->
+
+                      <div class="row mt-5 me-0 m">
+                        <div class="mb-0 w-100">
+                          <div class="input-group">
+                            <span class="input-group-btn">
+                              <button
+                                type="button"
+                                class="btn btn-default btn-number"
+                                onclick="minus('inputNum1')"
+                              >
+                                <i data-feather="minus-square"></i></button
+                            ></span>
+                            <input
+                              type="text"
+                              disabled="disabled"
+                              value="1"
+                              class="form-control input-number form-select-sm"
+                              id="inputNum1"
+                            />
+                            <span class="input-group-btn">
+                              <button
+                                type="button"
+                                class="btn btn-default btn-number"
+                                onclick='add("inputNum1")'
+                              >
+                                <i data-feather="plus-square"></i></button
+                            ></span>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mx-5">
-              <div class="col-lg-12">
-                <div class="card mb-5">
-                  <div class="card-body">
-                    <div class="row mb-1">
-                      <div class="col-md-5 col-lg-3 col-xl-3">
-                        <div
-                          class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0"
-                        >
-                          <img
-                            src="../../public/image/img2.jpg"
-                            alt=""
-                            class="img-thumbnail"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-7 col-lg-9 col-xl-9">
-                        <div>
-                          <div class="d-flex justify-content-between">
-                            <div class="mt-5">
-                              <h5>Cooler PC Dark Rock Pro TR4</h5>
-                              <p class="mb-2 text-uppercase small">
-                                Product Info
-                              </p>
-                              <p class="mb-3 text-uppercase small">Ready Stock</p>
-                            </div>
-                            <!--Button Kanan-->
-                            <div class="row mt-5 me-lg-0">
-                              <div class="mb-0 w-100">
-                                <div class="input-group">
-                                  <span class="input-group-btn">
-                                    <button
-                                      type="button"
-                                      class="btn btn-default btn-number"
-                                      onclick="minus('inputNum2')"
-                                    >
-                                      <i data-feather="minus-square"></i></button
-                                  ></span>
-                                  <input
-                                    type="text"
-                                    disabled="disabled"
-                                    value="1"
-                                    class="
-                                      form-control
-                                      input-number
-                                      form-select-sm
-                                    "
-                                    id="inputNum2"
-                                  />
-                                  <span class="input-group-btn">
-                                    <button
-                                      type="button"
-                                      class="btn btn-default btn-number"
-                                      onclick='add("inputNum2")'
-                                    >
-                                      <i data-feather="plus-square"></i></button
-                                  ></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="mt-5 me-4" style="font-size: x-large">
-                              <p>Rp xxx.xxx</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mx-5">
-              <div class="col-lg-12">
-                <div class="card mb-5">
-                  <div class="card">
-                    <div class="card-body row">
-                      <div class="col-sm-6">
-                        Total Unit = x
-                        <br />
-                        Total Harga = Rp xxx.xxx
-                      </div>
-                      <div class="text-end col-sm-6 mt-3">
-                        <a href="checkout.ejs">
-                          <button
-                            type="submit"
-                            class="btn btn-light btn-sm border-dark"
-                          >
-                            Checkout
-                          </button>
-                        </a>
+                      <div class="mt-5 me-4" style="font-size: x-large">
+                        <p>Rp xxx.xxx</p>
                       </div>
                     </div>
                   </div>
@@ -197,31 +86,118 @@
               </div>
             </div>
           </div>
-  
-          <br /><br />
         </div>
-      </section>
+      </div>
+      <div class="row mx-5">
+        <div class="col-lg-12">
+          <div class="card mb-5">
+            <div class="card-body">
+              <div class="row mb-1">
+                <div class="col-md-5 col-lg-3 col-xl-3">
+                  <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                    <img src="/image/img2.jpg" alt="" class="img-thumbnail" />
+                  </div>
+                </div>
+                <div class="col-md-7 col-lg-9 col-xl-9">
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <div class="mt-5">
+                        <h5>Cooler PC Dark Rock Pro TR4</h5>
+                        <p class="mb-2 text-uppercase small">Product Info</p>
+                        <p class="mb-3 text-uppercase small">Ready Stock</p>
+                      </div>
+                      <!--Button Kanan-->
+                      <div class="row mt-5 me-lg-0">
+                        <div class="mb-0 w-100">
+                          <div class="input-group">
+                            <span class="input-group-btn">
+                              <button
+                                type="button"
+                                class="btn btn-default btn-number"
+                                onclick="minus('inputNum2')"
+                              >
+                                <i data-feather="minus-square"></i></button
+                            ></span>
+                            <input
+                              type="text"
+                              disabled="disabled"
+                              value="1"
+                              class="form-control input-number form-select-sm"
+                              id="inputNum2"
+                            />
+                            <span class="input-group-btn">
+                              <button
+                                type="button"
+                                class="btn btn-default btn-number"
+                                onclick='add("inputNum2")'
+                              >
+                                <i data-feather="plus-square"></i></button
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-5 me-4" style="font-size: x-large">
+                        <p>Rp xxx.xxx</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-5">
+        <div class="col-lg-12">
+          <div class="card mb-5">
+            <div class="card">
+              <div class="card-body row">
+                <div class="col-sm-6">
+                  Total Unit = x
+                  <br />
+                  Total Harga = Rp xxx.xxx
+                </div>
+                <div class="text-end col-sm-6 mt-3">
+                  <a href="checkout.ejs">
+                    <button
+                      type="submit"
+                      class="btn btn-light btn-sm border-dark"
+                    >
+                      Checkout
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <script>
-        function add(id) {
-          var inputCount = document.getElementById(id);
-          console.log("I got clicked");
-          if (inputCount.value < 100) {
-            inputCount.value++;
-          } else {
-            alert("Maksimal Pemesanan");
-          }
-        }
-  
-        function minus(id) {
-          var inputCount = document.getElementById(id);
-          console.log("Minus got clicked");
-          if (inputCount.value > 1) {
-            inputCount.value--;
-          } else {
-            alert("Remove item please");
-          }
-        }
-  
-        feather.replace();
-      </script>
+    <br /><br />
+  </div>
+</section>
+
+<script>
+  function add(id) {
+    var inputCount = document.getElementById(id);
+    console.log("I got clicked");
+    if (inputCount.value < 100) {
+      inputCount.value++;
+    } else {
+      alert("Maksimal Pemesanan");
+    }
+  }
+
+  function minus(id) {
+    var inputCount = document.getElementById(id);
+    console.log("Minus got clicked");
+    if (inputCount.value > 1) {
+      inputCount.value--;
+    } else {
+      alert("Remove item please");
+    }
+  }
+
+  feather.replace();
+</script>

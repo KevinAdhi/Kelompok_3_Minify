@@ -6,12 +6,12 @@ router.get("/", (req, res) => {
   res.render("pages/index");
 });
 
-router.get("/log-in", (req, res) => {
-    res.render("pages/login");
+router.get("/login", (req, res) => {
+  res.render("pages/login");
 });
 
 router.get("/register", (req, res) => {
-    res.render("pages/register");
+  res.render("pages/register");
 });
 
 router.get("/homePage", (req, res) => {
@@ -48,24 +48,59 @@ router.get("/edit-profile", (req, res) => {
   res.render("pages/editProfile");
 });
 
+router.get("/HowToOrder", (req, res) => {
+  res.render("pages/HowToOrder");
+});
+
+router.get("/Terms", (req, res) => {
+  res.render("pages/Terms");
+});
+
+router.get("/FAQ", (req, res) => {
+  res.render("pages/FAQ");
+});
+
+router.get("/verificationcode", (req, res) => {
+  res.render("pages/verificationcode");
+});
+
 router.get("/edit-product", (req, res) => {
   res.render("pages/editProduct");
 });
+
 router.get("/product", async (req, res) => {
   var data = await Product.find();
   res.render("pages/product", { products: data });
 });
 
-router.get("/bestseller", (req, res) => {
-  res.render("pages/bestseller");
+// router.get("/best", (req, res) => {
+//   var data = await Product.find();
+//   res.render("pages/best", { products: data });
+// });
+
+// router.get("/newArrival", (req, res) => {
+//   var data = await Product.find();
+//   res.render("pages/newArrival", { products: data });
+// });
+
+router.get("/details", (req, res) => {
+  res.render("pages/details");
+});
+
+router.get("/cart", (req, res) => {
+  res.render("pages/cart");
+});
+
+router.get("/newArrival", (req, res) => {
+  res.render("pages/newArrival");
+});
+
+router.get("/Company", (req, res) => {
+  res.render("pages/Company");
 });
 
 router.get("/register", (req, res) => {
   res.render("pages/register");
-});
-
-router.get("/details", (req, res) => {
-  res.render("pages/details");
 });
 
 router.get("/wishlist", (req, res) => {
@@ -73,15 +108,11 @@ router.get("/wishlist", (req, res) => {
 });
 
 router.get("/changepassword", (req, res) => {
-    res.render("pages/changepassword");
-});
-
-router.get("/verificationcode", (req, res) => {
-    res.render("pages/verificationcode");
+  res.render("pages/changepassword");
 });
 
 router.get("/forgetpassword", (req, res) => {
-    res.render("pages/forgetpassword");
+  res.render("pages/forgetpassword");
 });
 
 module.exports = router;
