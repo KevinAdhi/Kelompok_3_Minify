@@ -68,20 +68,18 @@ router.get("/edit-product", (req, res) => {
   res.render("pages/editProduct");
 });
 
-router.get("/product", async (req, res) => {
-  var data = await Product.find();
-  res.render("pages/product", { products: data });
+// router.get("/product", async (req, res) => {
+//   var data = await Product.find();
+//   res.render("pages/product", { products: data });
+// });
+
+router.get("/best", (req, res) => {
+  res.render("pages/best");
 });
 
-// router.get("/best", (req, res) => {
-//   var data = await Product.find();
-//   res.render("pages/best", { products: data });
-// });
-
-// router.get("/newArrival", (req, res) => {
-//   var data = await Product.find();
-//   res.render("pages/newArrival", { products: data });
-// });
+router.get("/product", (req, res) => {
+  res.render("pages/product");
+});
 
 router.get("/details", (req, res) => {
   res.render("pages/details");
