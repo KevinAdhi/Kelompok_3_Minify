@@ -3,64 +3,63 @@ const Product = require("../models/product");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("pages/index");
+  res.render("pages/index");
 });
 router.get("/homePage", (req, res) => {
-    res.render("pages/homePage");
+  res.render("pages/homePage");
 });
 router.get("/checkout", (req, res) => {
-    res.render("pages/checkout");
+  res.render("pages/checkout");
 });
 router.get("/payment", (req, res) => {
-    res.render("pages/payment");
+  res.render("pages/payment");
 });
 router.get("/myorder", (req, res) => {
-    res.render("pages/myorder");
+  res.render("pages/myorder");
 });
 router.get("/myOrderDetails", (req, res) => {
-    res.render("pages/myOrderDetails");
+  res.render("pages/myOrderDetails");
 });
 router.get("/message", (req, res) => {
-    res.render("pages/message");
+  res.render("pages/message");
 });
 router.get("/dashboard", (req, res) => {
-    res.render("pages/dashboard");
+  res.render("pages/dashboard");
 });
+
 router.get("/chat-room", (req, res) => {
-    res.render("pages/chatRoom");
+  res.render("pages/chatRoom");
 });
 
 router.get("/profile", (req, res) => {
-    res.render("pages/profile");
+  res.render("pages/profile");
 });
 
 router.get("/edit-profile", (req, res) => {
-    res.render("pages/editProfile");
+  res.render("pages/editProfile");
 });
 
 router.get("/edit-product", (req, res) => {
-    res.render("pages/editProduct");
+  res.render("pages/editProduct");
 });
-
 router.get("/product", async (req, res) => {
-    var data = await Product.find();
-    res.render("pages/product", { products: data });
-});
-
-router.get("/log-in", (req, res) => {
-    res.render("pages/logIn");
+  var data = await Product.find();
+  res.render("pages/product", { products: data });
 });
 
 router.get("/bestseller", (req, res) => {
   res.render("pages/bestseller");
 });
-router.get("/bestseller", (req, res) => {
+
+router.get("/register", (req, res) => {
   res.render("pages/register");
 });
-router.get("/bestseller", (req, res) => {
-  res.render("pages/productdetails");
+
+router.get("/details", (req, res) => {
+  res.render("pages/details");
 });
-router.get("/bestseller", (req, res) => {
+
+router.get("/wishlist", (req, res) => {
   res.render("pages/wishlist");
 });
 

@@ -2,11 +2,8 @@ const express = require("express");
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-<<<<<<< HEAD
 const socket = require("socket.io");
-=======
 const session = require("express-session");
->>>>>>> 2d426840593b01d29c928a5b4c4bfa2559d7af73
 
 const app = express();
 const PORT = 3000;
