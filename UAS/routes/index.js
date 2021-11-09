@@ -84,11 +84,4 @@ router.get("/forgetpassword", (req, res) => {
     res.render("pages/forgetpassword");
 });
 
-<<<<<<< HEAD
-=======
-router.get("/cart", (req, res) => {
-    res.render("pages/cart");
-});
-
->>>>>>> 118a7acd19767898c2c74326947f7407c2a3a385
 module.exports = router;
