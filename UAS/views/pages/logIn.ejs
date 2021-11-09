@@ -1,0 +1,88 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .custom-select {
+        width: 13%;
+        margin-right: 5px;
+    }
+
+    .btnLogin {
+        margin: 15px 0;
+        padding: 10px 10px;
+        /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    }
+
+    .Login {
+        /* border: 1px solid black; */
+        background-color: rgb(175, 175, 175);
+        padding: 35px;
+        /* width: 50%; */
+        /* margin: 5% 25%; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+
+    /* @media screen and (max-width: 720px) {
+    
+   } */
+</style>
+
+<div style="background-color: grey; padding: 5% 25%">
+    <div class="Login">
+        <div>
+            <form>
+                <h1>Login</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email : </label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Email@mail.com"
+                        required
+                    />
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password :</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        placeholder="Password"
+                        required
+                    />
+                </div>
+
+                <br />
+                <p>First time here? <a href="register.html">Register</a></p>
+                <a href="forgetpassword.html">Forgot Password?</a>
+                <br />
+
+                <br />
+                <a href="homePage.html">
+                    <button
+                        type="submit"
+                        class="btnLogin btn btn-primary"
+                        style="
+                            background-color: white;
+                            color: black;
+                            border: none;
+                        "
+                    >
+                        Login
+                    </button>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
