@@ -63,4 +63,20 @@ router.get("/wishlist", (req, res) => {
   res.render("pages/wishlist");
 });
 
+router.get("/changepassword", (req, res) => {
+    res.render("pages/changepassword");
+});
+
+router.get("/verificationcode", (req, res) => {
+    res.render("pages/verificationcode");
+});
+
+router.get("/forgetpassword", (req, res) => {
+    res.render("pages/forgetpassword");
+});
+
+router.get("/cart", (req, res) => {
+    res.render("pages/cart");
+});
+
 module.exports = router;
