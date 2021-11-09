@@ -33,10 +33,6 @@ const indexRouter = require("./routes/index");
 
 app.use("/", indexRouter);
 
-app.get("/", (req, res) => {
-  res.render("pages/index");
-});
-
 app.listen(PORT, () => {
   console.log(`Server Berjalan di port ${PORT}`);
 });
