@@ -625,30 +625,14 @@
         >
 
         <div class="card-group" style="margin: 2% 0">
+            <% categories.forEach(c => { %>
             <a href="/product" class="card rounded-3">
-                <img src="image/monitor.jpg" class="card-img-top" alt="..." />
+                <img src="<%= c.imgPath %>" class="card-img-top" alt="..." />
                 <div class="card-body">
-                    <h4 class="card-title">Komputer</h4>
+                    <h4 class="card-title"><%= c.nama %></h4>
                 </div>
             </a>
-            <a href="/product" class="card rounded-3">
-                <img src="image/Asus.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h4 class="card-title">Laptop</h4>
-                </div>
-            </a>
-            <a href="/product" class="card rounded-3">
-                <img src="image/headset.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h4 class="card-title">Aksesoris</h4>
-                </div>
-            </a>
-            <a href="/product" class="card rounded-3">
-                <img src="image/keyboard.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h4 class="card-title">Lain-lain</h4>
-                </div>
-            </a>
+            <% }) %>
         </div>
     </div>
 

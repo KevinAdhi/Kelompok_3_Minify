@@ -18,7 +18,7 @@
 </div>
 <br />
 <div class="row">
-    <div class="col-5 col-lg-2">
+    <div class="col-5 col-lg-3">
         <h5>Filter</h5>
         <div>
             <button type="submit">Terapkan</button>
@@ -27,47 +27,23 @@
                     <input type="checkbox" name="filter" value="" />
                     Stok Kosong
                 </li>
+                <% categories.forEach(c => { %>
                 <li>
                     <input type="checkbox" name="filter" value="" />
-                    Komputer
+                    <%= c.nama %>
                 </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Laptop
-                </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Aksesoris
-                </li>
+                <% }) %>
                 <li>
                     <input type="checkbox" name="filter" value="" />
                     Lain-lain
                 </li>
                 <li><b> Merk</b></li>
+                <% brands.forEach(b => { %>
                 <li>
                     <input type="checkbox" name="filter" value="" />
-                    Asus
+                    <%= b.nama %>
                 </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Acer
-                </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Lenovo
-                </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Msi
-                </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Dell
-                </li>
-                <li>
-                    <input type="checkbox" name="filter" value="" />
-                    Hp
-                </li>
+                <% }) %>
             </ul>
         </div>
     </div>
@@ -81,8 +57,9 @@
             "
         >
             <!-- items -->
+            <% products.forEach(p => { %>
             <div class="col">
-                <a href="editProduct.html" class="card">
+                <a href="../editProduct.html" class="card">
                     <div style="margin: 0 auto; height: 50%">
                         <img
                             class="card-img-top"
@@ -91,106 +68,19 @@
                         />
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">ASUS XXX</h4>
-                        <h5 class="card-text">Rp. xxx.000</h5>
+                        <h4 class="card-title"><%= p.name %></h4>
+                        <h5 class="card-text">Rp. <%= p.price %></h5>
                         <p>
                             <i
                                 data-feather="star"
                                 style="vertical-align: bottom"
                             ></i>
-                            5.0 | Stok : 10
+                            5.0 | Stok : <%= p.stock %>
                         </p>
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="editProduct.html" class="card">
-                    <div style="margin: 0 auto; height: 50%">
-                        <img
-                            class="card-img-top"
-                            src="image/Asus.jpg"
-                            alt="..."
-                        />
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">ASUS XXX</h4>
-                        <h5 class="card-text">Rp. xxx.000</h5>
-                        <p>
-                            <i
-                                data-feather="star"
-                                style="vertical-align: bottom"
-                            ></i>
-                            5.0 | Stok : 10
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="editProduct.html" class="card">
-                    <div style="margin: 0 auto; height: 50%">
-                        <img
-                            class="card-img-top"
-                            src="image/Asus.jpg"
-                            alt="..."
-                        />
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">ASUS XXX</h4>
-                        <h5 class="card-text">Rp. xxx.000</h5>
-                        <p>
-                            <i
-                                data-feather="star"
-                                style="vertical-align: bottom"
-                            ></i>
-                            5.0 | Stok : 10
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="editProduct.html" class="card">
-                    <div style="margin: 0 auto; height: 50%">
-                        <img
-                            class="card-img-top"
-                            src="image/Asus.jpg"
-                            alt="..."
-                        />
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">ASUS XXX</h4>
-                        <h5 class="card-text">Rp. xxx.000</h5>
-                        <p>
-                            <i
-                                data-feather="star"
-                                style="vertical-align: bottom"
-                            ></i>
-                            5.0 | Stok : 10
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="editProduct.html" class="card">
-                    <div style="margin: 0 auto; height: 50%">
-                        <img
-                            class="card-img-top"
-                            src="image/Asus.jpg"
-                            alt="..."
-                        />
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">ASUS XXX</h4>
-                        <h5 class="card-text">Rp. xxx.000</h5>
-                        <p>
-                            <i
-                                data-feather="star"
-                                style="vertical-align: bottom"
-                            ></i>
-                            5.0 | Stok : 10
-                        </p>
-                    </div>
-                </a>
-            </div>
+            <% }) %>
         </div>
     </div>
 </div>
