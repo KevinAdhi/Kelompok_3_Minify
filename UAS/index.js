@@ -57,6 +57,8 @@ db.once("open", () => {
 
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
+const productRouter = require("./routes/product");
+const categoryBrandRouter = require("./routes/categoryBrand");
 
 app.use((req, res, next) => {
     res.locals.isLoggedIn = req.session.isLoggedIn;
@@ -67,6 +69,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/categoryBrand", categoryBrandRouter);
+app.use("/product", productRouter);
 app.use("/user", userRouter);
 app.use("/", indexRouter);
 
