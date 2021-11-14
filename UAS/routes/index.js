@@ -83,18 +83,18 @@ router.get("/edit-product", (req, res) => {
   res.render("pages/editProduct", { title: "Edit Product || Minify" });
 });
 
-// router.get("/product", async (req, res) => {
-//   var data = await Product.find();
-//   res.render("pages/product", { products: data });
-// });
+router.get("/product", async (req, res) => {
+  var data = await Products.find();
+  res.render("pages/product", { products: data, title: "Product || Minify" });
+});
 
 router.get("/best", (req, res) => {
   res.render("pages/best", { title: "Best || Minify" });
 });
 
-router.get("/product", (req, res) => {
-  res.render("pages/product", { title: "Product || Minify" });
-});
+// router.get("/product", (req, res) => {
+//   res.render("pages/product", { title: "Product || Minify" });
+// });
 
 router.get("/details", (req, res) => {
   res.render("pages/details", { title: "Details || Minify" });
