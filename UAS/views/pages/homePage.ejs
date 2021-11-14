@@ -163,7 +163,7 @@
     <!-- Best Seller -->
 
     <div id="bestSeller">
-        <a href="best.html" class="text-dark text-decoration-none"
+        <a href="/best" class="text-dark text-decoration-none"
             ><h1>Best Seller</h1></a
         >
         <div
@@ -201,7 +201,7 @@
             >
                 <div class="carousel-item active">
                     <div class="card-group">
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -222,7 +222,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -243,7 +243,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -264,7 +264,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -289,7 +289,7 @@
                 </div>
                 <div class="carousel-item">
                     <div class="card-group">
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/monitor.jpg"
                                 class="card-img-top"
@@ -310,7 +310,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/monitor.jpg"
                                 class="card-img-top"
@@ -331,7 +331,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/monitor.jpg"
                                 class="card-img-top"
@@ -352,7 +352,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/monitor.jpg"
                                 class="card-img-top"
@@ -377,7 +377,7 @@
                 </div>
                 <div class="carousel-item">
                     <div class="card-group">
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -398,7 +398,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -419,7 +419,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -440,7 +440,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="details.html" class="card rounded-3">
+                        <a href="/details" class="card rounded-3">
                             <img
                                 src="image/Asus.jpg"
                                 class="card-img-top"
@@ -503,7 +503,7 @@
                 style="width: 90%; padding: 2% 0"
             >
                 <div class="carousel-item active">
-                    <a href="details.html" class="card rounded-3">
+                    <a href="/details" class="card rounded-3">
                         <img
                             src="image/Asus.jpg"
                             class="card-img-top"
@@ -525,7 +525,7 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a href="details.html" class="card rounded-3">
+                    <a href="/details" class="card rounded-3">
                         <img
                             src="image/Asus.jpg"
                             class="card-img-top"
@@ -547,7 +547,7 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a href="details.html" class="card rounded-3">
+                    <a href="/details" class="card rounded-3">
                         <img
                             src="image/Asus.jpg"
                             class="card-img-top"
@@ -569,7 +569,7 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a href="details.html" class="card rounded-3">
+                    <a href="/details" class="card rounded-3">
                         <img
                             src="image/Asus.jpg"
                             class="card-img-top"
@@ -620,35 +620,19 @@
 
     <!-- products -->
     <div id="products">
-        <a href="product.html" class="text-dark text-decoration-none"
+        <a href="/product" class="text-dark text-decoration-none"
             ><h1>Products</h1></a
         >
 
         <div class="card-group" style="margin: 2% 0">
-            <a href="product.html" class="card rounded-3">
-                <img src="image/monitor.jpg" class="card-img-top" alt="..." />
+            <% categories.forEach(c => { %>
+            <a href="/product" class="card rounded-3">
+                <img src="<%= c.imgPath %>" class="card-img-top" alt="..." />
                 <div class="card-body">
-                    <h4 class="card-title">Komputer</h4>
+                    <h4 class="card-title"><%= c.nama %></h4>
                 </div>
             </a>
-            <a href="product.html" class="card rounded-3">
-                <img src="image/Asus.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h4 class="card-title">Laptop</h4>
-                </div>
-            </a>
-            <a href="product.html" class="card rounded-3">
-                <img src="image/headset.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h4 class="card-title">Aksesoris</h4>
-                </div>
-            </a>
-            <a href="product.html" class="card rounded-3">
-                <img src="image/keyboard.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h4 class="card-title">Lain-lain</h4>
-                </div>
-            </a>
+            <% }) %>
         </div>
     </div>
 
