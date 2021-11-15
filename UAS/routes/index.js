@@ -2,6 +2,7 @@ const express = require("express");
 const Products = require("../models/product");
 const Brands = require("../models/brand");
 const Categories = require("../models/category");
+const Carts = require("../models/cart");
 
 const router = express.Router();
 
@@ -92,10 +93,6 @@ router.get("/best", (req, res) => {
   res.render("pages/best", { title: "Best || Minify" });
 });
 
-// router.get("/product", (req, res) => {
-//   res.render("pages/product", { title: "Product || Minify" });
-// });
-
 router.get("/details", (req, res) => {
   res.render("pages/details", { title: "Details || Minify" });
 });
@@ -126,6 +123,21 @@ router.get("/changepassword", (req, res) => {
 
 router.get("/forgetpassword", (req, res) => {
   res.render("pages/forgetpassword", { title: "Forget Password || Minify" });
+});
+
+router.get("/add-to-cart/:id", (req, res, next) => {
+  const productId = req.params.id;
+  const cart = new Carts(req.session.cart ? req.session.cart : {});
+
+  Products.findById(productId, function (err, product) {
+    if (err) {
+      return res.redirect("/product");
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect("/product");
+  });
 });
 
 module.exports = router;

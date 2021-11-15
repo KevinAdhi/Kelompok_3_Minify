@@ -31,16 +31,16 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 mongoose.connect(
-    // "mongodb://localhost:27017/webpro?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-    "mongodb+srv://minify:minify1234@cluster0.nodgj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    (err, res) => {
-        if (err) {
-            console.error(err);
-            console.log("not connect");
-        } else {
-            console.log("Database terhubung");
-        }
+  // "mongodb://localhost:27017/webpro?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+  "mongodb+srv://minify:minify1234@cluster0.nodgj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  (err, res) => {
+    if (err) {
+      console.error(err);
+      console.log("not connect");
+    } else {
+      console.log("Database terhubung");
     }
+  }
 );
 
 // mongoose.connect(
@@ -51,14 +51,11 @@ mongoose.connect(
 // );
 const db = mongoose.connection;
 
-db.once("open", () => {
-  console.log("Succesfully connected to MongoDB using Mongoose!");
-});
-
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/product");
 const categoryBrandRouter = require("./routes/categoryBrand");
+const cartRouter = require("./routes/cart");
 
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
@@ -69,14 +66,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/cart", cartRouter);
 app.use("/categoryBrand", categoryBrandRouter);
 app.use("/product", productRouter);
 app.use("/user", userRouter);
 app.use("/", indexRouter);
-
-app.get("/", (req, res) => {
-  res.render("pages/index");
-});
 
 app.listen(PORT, () => {
   console.log(`Server Berjalan di port ${PORT}`);
