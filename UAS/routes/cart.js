@@ -53,7 +53,7 @@ router.get("/add-to-wish-from-cart/:id", (req, res, next) => {
 
   Product.findById(productId, function (err, product) {
     if (err) {
-      return res.redirect("/allproduct");
+      return res.redirect("/product");
     }
     wish.add(product, product.id);
     cart.removeItem(productId);

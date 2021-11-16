@@ -129,15 +129,19 @@ router.get("/add-to-cart/:id", (req, res, next) => {
   const productId = req.params.id;
   const cart = new Carts(req.session.cart ? req.session.cart : {});
 
-  Products.findById(productId, function (err, product) {
-    if (err) {
-      return res.redirect("/product");
-    }
-    cart.add(product, product.id);
-    req.session.cart = cart;
-    console.log(req.session.cart);
-    res.redirect("/product");
-  });
+  if (req.session.isLoggedIn) {
+    Products.findById(productId, function (err, product) {
+      if (err) {
+        return res.redirect("/product");
+      }
+      cart.add(product, product.id);
+      req.session.cart = cart;
+      console.log(req.session.cart);
+      res.redirect("/product");
+    });
+  } else {
+    res.redirect("/login");
+  }
 });
 
 module.exports = router;
