@@ -3,6 +3,7 @@ const Products = require("../models/product");
 const Brands = require("../models/brand");
 const Categories = require("../models/category");
 const Carts = require("../models/cart");
+const Wish = require("../models/wish");
 
 const router = express.Router();
 
@@ -12,10 +13,6 @@ router.get("/", (req, res) => {
 
 router.get("/login", (req, res) => {
   res.render("pages/login", { title: "Login || Minify" });
-});
-
-router.get("/register", (req, res) => {
-  res.render("pages/register", { title: "Register || Minify" });
 });
 
 router.get("/homePage", async (req, res) => {
@@ -132,10 +129,6 @@ router.get("/best", (req, res) => {
   res.render("pages/best", { title: "Best || Minify" });
 });
 
-router.get("/details", (req, res) => {
-  res.render("pages/details", { title: "Details || Minify" });
-});
-
 router.get("/cart", (req, res) => {
   res.render("pages/cart", { title: "Cart || Minify" });
 });
@@ -152,20 +145,25 @@ router.get("/register", (req, res) => {
   res.render("pages/register", { title: "Register || Minify" });
 });
 
-router.get("/wishlist", (req, res) => {
-  res.render("pages/wishlist", { title: "Wishlist || Minify" });
+router.get("/details/:id", (req, res) => {
+  const productId = req.params.id;
+
+  Products.findById(productId, function (err, product) {
+    Products.add(product, product.id);
+    res.redirect("/details");
+  });
 });
 
-router.get("/add-to-wish/:id", (req, res) => {
+router.get("/add-to-wish/:id", (req, res, next) => {
   const productId = req.params.id;
-  const wish = new wishlist(req.session.wish ? req.session.wish : {});
+  const wish = new Wish(req.session.wish ? req.session.wish : {});
 
   if (req.session.isLoggedIn) {
-    Products.findById(productId, function (err, products) {
+    Products.findById(productId, function (err, product) {
       if (err) {
         return res.redirect("/product");
       }
-      wish.add(products, products.id);
+      wish.add(product, product.id);
       req.session.wish = wish;
       console.log(req.session.wish);
       res.redirect("/product");

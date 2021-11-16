@@ -194,7 +194,10 @@
         <div class="row row-cols-1 row-cols-md-3">
           <% products.forEach((product) => {%>
           <div class="col mb-4">
-            <a href="/details" style="text-decoration: none; color: black">
+            <a
+              href="/details/<%= product._id %>"
+              style="text-decoration: none; color: black"
+            >
               <div class="card h-100">
                 <img
                   src="<%= product.image %>"
@@ -216,6 +219,12 @@
                   class="btn btn-primary mar10"
                   style="background-color: grey; color: white; border: none"
                   >Buy Now</a
+                >
+                <a
+                  href="/add-to-wish/<%= product._id %>"
+                  class="btn btn-primary mar10"
+                  style="background-color: grey; color: white; border: none"
+                  >Wishlist</a
                 >
               </div>
             </a>

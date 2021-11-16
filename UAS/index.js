@@ -56,6 +56,8 @@ const productRouter = require("./routes/product");
 const categoryBrandRouter = require("./routes/categoryBrand");
 const cartRouter = require("./routes/cart");
 const checkoutRouter = require("./routes/checkout");
+const wishRouter = require("./routes/wish");
+const detailsRouter = require("./routes/details");
 
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
@@ -72,6 +74,8 @@ app.use("/categoryBrand", categoryBrandRouter);
 app.use("/product", productRouter);
 app.use("/user", userRouter);
 app.use("/", indexRouter);
+app.use("/wishlist", wishRouter);
+app.use("/details", detailsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Berjalan di port ${PORT}`);

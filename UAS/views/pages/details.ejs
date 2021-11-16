@@ -129,6 +129,7 @@
 <section style="background-color: grey; padding: 5%">
   <div class="secmargin">
     <div class="mb-4 product">
+      <% products(function(items){ %>
       <!-- Image -->
       <div class="prodimage">
         <!-- Image view -->
@@ -173,7 +174,7 @@
       </div>
       <!-- Product Details -->
       <div class="prodetail">
-        <h4><b>Product Name</b></h4>
+        <h4><b><%= items.item.name %></b></h4>
         <div class="jc-sb mb-3">
           <p>(5.0/5.0)</p>
           <div style="display: flex; margin-left: 5px">
@@ -213,27 +214,25 @@
         </div>
         <!-- Price -->
         <div style="text-align: center">
-          <p>Rp xx.xxx,xx</p>
+          <p>Rp <%= product.price %></p>
         </div>
         <div class="mb-3">
-          <input
+          <a
+            href="/add-to-cart/<%= product._id %>"
             class="btn btn-primary"
-            type="submit"
-            value="Add to Cart"
             style="
               width: 100%;
               background-color: white;
               color: black;
               border: none;
             "
-          />
+            >Add To Cart</a
+          >
         </div>
         <div class="mb-3">
           <a
             id="check"
             class="btn btn-primary"
-            type="submit"
-            value="Buy Now"
             href="/checkout"
             style="
               width: 100%;
@@ -245,19 +244,21 @@
           >
         </div>
         <div class="mb-3">
-          <input
+          <a
+            href="/add-to-wish/<%= product._id %>"
             class="btn btn-primary"
-            type="submit"
-            value="Wishlist"
             style="
               width: 100%;
               background-color: white;
               color: black;
               border: none;
             "
-          />
+          >
+            Wishlist
+          </a>
         </div>
       </div>
+      <% })
     </div>
     <!-- Product Description -->
     <div>
