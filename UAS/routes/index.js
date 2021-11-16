@@ -50,6 +50,45 @@ router.get("/dashboard", async (req, res) => {
   });
 });
 
+router.post("/filterProduct", async (req, res) => {
+  console.log(req.body);
+  const brands = await Brands.find({}, { nama: 1, _id: 0 });
+  const categories = await Categories.find({}, { nama: 1, _id: 0 });
+
+  if (req.body.category == undefined) {
+    var result = [];
+
+    categories.forEach((t) => {
+      result.push(t.nama);
+    });
+
+    req.body.category = result;
+  }
+  if (req.body.brand == undefined) {
+    var result = [];
+
+    brands.forEach((t) => {
+      result.push(t.nama);
+    });
+
+    req.body.brand = result;
+  }
+  console.log(req.body.brand);
+
+  const products = await Products.find({
+    brand: req.body.brand,
+    category: req.body.category,
+  });
+
+  products.forEach((p) => {
+    console.log(p);
+  });
+
+  // res.render("pages/dashboard", {
+  //   products,
+  // });
+});
+
 router.get("/chat-room", (req, res) => {
   res.render("pages/chatRoom", { title: "Chat Room || Minify" });
 });
