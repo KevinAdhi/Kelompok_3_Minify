@@ -6,50 +6,41 @@
     <div style="background-color: rgb(175, 175, 175); padding: 2%">
       <i data-feather="shopping-cart" class="mx-5" style="float: right"></i
       ><br /><br />
+      <% if(products.length > 0) { %>
       <div class="row mx-5">
         <!-- Detail Produk -->
-        <div class="col-md-2 mt-2">
-          <img
-            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
-            alt="detailImg"
-            style="
-              width: 100%;
-              max-width: 250px;
-              min-width: 90px;
-              min-height: 80px;
-            "
-          />
+        <% products.forEach(function (items) { %>
+        <div class="row">
+          <div class="col-md-2 mt-2">
+            <img
+              src="<%= items.item.image %> "
+              alt="produk"
+              style="
+                width: 100%;
+                max-width: 250px;
+                min-width: 90px;
+                min-height: 80px;
+              "
+              name="img"
+            />
+          </div>
+          <div class="col-md-5 mt-2">
+            <p class="fs-5" name="name"><%= items.item.name %></p>
+          </div>
+          <div class="col-md-3 mt-2">
+            <p class="fs-5" name="qty">x<%= items.qty %></p>
+          </div>
+          <div class="col-md-2 mt-2">
+            <p class="fs-5 text-md-end text-sm-start" name="price">
+              RP. <%= items.price %>
+            </p>
+          </div>
         </div>
-        <div class="col-md-8 mt-2">
-          <p class="fs-5">Product Name...</p>
-        </div>
-        <div class="col-md-2 mt-2">
-          <p class="fs-5 text-md-end text-sm-start">RP.xxx.xxx</p>
-        </div>
-
-        <div class="col-md-2 mt-2">
-          <img
-            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
-            alt="detailImg"
-            style="
-              width: 100%;
-              max-width: 250px;
-              min-width: 90px;
-              min-height: 80px;
-            "
-          />
-        </div>
-        <div class="col-md-8 mt-2">
-          <p class="fs-5">Product Name...</p>
-        </div>
-        <div class="col-md-2 mt-2">
-          <p class="fs-5 text-md-end text-sm-start">RP.xxx.xxx</p>
-        </div>
-
+        <% }); %>
         <br />
         <hr />
-        <p class="fs-5 text-md-end text-sm-start">
-          Total Produk: Rp. xxx.xxx,xx
+        <p class="fs-5 text-md-end text-sm-start" name="totalPrice">
+          Total Produk: Rp. <%= totalPrice %>
         </p>
 
         <!-- Form Pembayaran & Pengiriman -->
@@ -66,6 +57,7 @@
                 style="font-size: large"
                 placeholder="Masukkan Alamat"
                 required
+                name="address"
               />
               <div class="invalid-feedback">
                 Masukkan alamat pengiriman anda.
@@ -82,18 +74,14 @@
                 class="form-select"
                 style="font-size: large"
                 required
+                name="payment"
               >
                 <option value>Pilih Pembayaran</option>
-                <option value="bayar1">Opsi 1</option>
-                <option value="bayar2">Opsi 2</option>
+                <option value="bayar1">BCA</option>
+                <option value="bayar2">Virtual Account</option>
               </select>
               <div class="invalid-feedback">Pilih metode pembayaran anda.</div>
             </div>
-            <label
-              for="payment"
-              class="col-sm-6 col-md-4 col-form-label fs-5 text-end"
-              >Metode pembayaran yang dipilih</label
-            >
           </div>
 
           <div class="row mb-3">
@@ -107,11 +95,12 @@
                 name="pengiriman"
                 class="form-select"
                 style="font-size: large"
-                required
+                id="kurir"
+                onchange="kirim()"
               >
-                <option value>Pilih Kurir</option>
-                <option value="kurir1">Opsi 1</option>
-                <option value="kurir2">Opsi 2</option>
+                <option class="pilihan" value>Pilih Kurir</option>
+                <option class="pilihan" value="kurir1">TIKI</option>
+                <option class="pilihan" value="kurir2">JNE</option>
               </select>
               <div class="invalid-feedback">Pilih kurir pengiriman anda.</div>
             </div>
@@ -123,8 +112,8 @@
             <label
               for="payment"
               class="col-sm col-md-2 col-form-label fs-5 text-end"
-              >RP. xxx.xxx</label
-            >
+              ><%= checkout.pilih %>
+            </label>
           </div>
 
           <!-- Detail Harga -->
@@ -134,38 +123,66 @@
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-7 fs-5">Produk:</div>
-            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-4 fs-5 text-end">RP. <%= totalPrice %></div>
             <div class="col-sm-1"></div>
             <div class="col-sm-7 fs-5">Ongkir:</div>
-            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-4 fs-5 text-end">RP. <%= checkout.ongkir %></div>
             <div class="col-sm-1"></div>
             <div class="col-sm-7 fs-5">Pajak:</div>
-            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-4 fs-5 text-end">RP. <%= checkout.pajak %></div>
             <div class="col-sm-1"></div>
             <div class="col-sm-7 fs-5">Potongan:</div>
-            <div class="col-sm-4 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-4 fs-5 text-end">
+              RP. <%= checkout.potongan %>
+            </div>
             <hr class="my-4" />
             <div class="col-sm-1 col-md-2"></div>
             <div class="col-sm-7 col-md-8 fs-5 mb-5 text-end">
               Total yang harus dibayar:
             </div>
-            <div class="col-sm-4 col-md-2 fs-5 text-end">RP. xxx.xxx,xx</div>
+            <div class="col-sm-4 col-md-2 fs-5 text-end">
+              <%= totalPrice+checkout.ongkir+checkout.pajak-checkout.potongan %>
+            </div>
           </div>
-
           <!-- Tombol Order -->
-          <button
-            class="btn btn-outline-dark btn-lg my-2"
-            style="width: 150px; float: right"
-            type="submit"
+          <a href="/addOrder"
+            ><button
+              class="btn btn-outline-dark btn-lg my-2"
+              style="width: 150px; float: right"
+              type="submit"
+            >
+              Order
+            </button></a
           >
-            Order
-          </button>
         </form>
       </div>
+      <% } else { %>
+      <div class="col-md-12">
+        <div
+          class="div"
+          style="background-color: #c4c4c4; text-align: center; height: 550px"
+        >
+          <h1 class="mt-5" style="position: relative; padding-top: 220px">
+            Tidak Ada Produk
+          </h1>
+        </div>
+      </div>
     </div>
+    <% } %>
   </div>
 </section>
 
+<script>
+  kirim = () => {
+    window.location.replace(
+      window.location.href +
+        "/kurir/" +
+        document.getElementsByClassName("pilihan")[
+          document.getElementById("kurir").selectedIndex
+        ].value
+    );
+  };
+</script>
 <script>
   // Nonaktifkan pengiriman formulir jika ada bidang yang tidak valid
   (function () {

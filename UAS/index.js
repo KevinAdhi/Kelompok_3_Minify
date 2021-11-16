@@ -3,7 +3,6 @@ const express = require("express");
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const socket = require("socket.io");
 const session = require("express-session");
 
 const app = express();
@@ -56,6 +55,7 @@ const userRouter = require("./routes/user");
 const productRouter = require("./routes/product");
 const categoryBrandRouter = require("./routes/categoryBrand");
 const cartRouter = require("./routes/cart");
+const checkoutRouter = require("./routes/checkout");
 
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
@@ -66,6 +66,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/checkout", checkoutRouter);
 app.use("/cart", cartRouter);
 app.use("/categoryBrand", categoryBrandRouter);
 app.use("/product", productRouter);
