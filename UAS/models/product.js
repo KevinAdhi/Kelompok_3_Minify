@@ -29,6 +29,10 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  rating: {
+    type: mongoose.SchemaTypes.Decimal128,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema, "product");
