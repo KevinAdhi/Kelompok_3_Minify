@@ -117,6 +117,25 @@ router.get("/wishlist", (req, res) => {
   res.render("pages/wishlist", { title: "Wishlist || Minify" });
 });
 
+router.get("/add-to-wish/:id", (req, res) => {
+  const productId = req.params.id;
+  const wish = new wishlist(req.session.wish ? req.session.wish : {});
+
+  if (req.session.isLoggedIn) {
+    Products.findById(productId, function (err, products) {
+      if (err) {
+        return res.redirect("/product");
+      }
+      wish.add(products, products.id);
+      req.session.wish = wish;
+      console.log(req.session.wish);
+      res.redirect("/product");
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
 router.get("/changepassword", (req, res) => {
   res.render("pages/changepassword", { title: "Change Password || Minify" });
 });
