@@ -38,12 +38,6 @@ module.exports = function Carts(oldCart) {
     }
   };
 
-  this.removeItem = function (id) {
-    this.totalQty -= this.items[id].qty;
-    this.totalPrice -= this.items[id].price;
-    delete this.items[id];
-  };
-
   this.generateArray = function () {
     var arr = [];
     for (var id in this.items) {
