@@ -181,6 +181,7 @@
           data-bs-toggle="list"
           href="#list-catalog"
           role="tab"
+          data-bs-target="#list-catalog"
           aria-controls="list-profile"
           >Katalog</a
         >
@@ -322,7 +323,6 @@
 <script>
   $("#add-product-submit").click(function () {
     if (confirm("Tambahkan produk?")) {
-      $("#backToCatalog").trigger("click");
     }
   });
   $("#add-category-submit").click(function () {
@@ -333,7 +333,28 @@
   $(".addBackBtn").click(function () {
     $("#backToCatalog").trigger("click");
   });
+
+  $(".addBackBtn").click(function () {
+    $("#backToCatalog").trigger("click");
+  });
+  $("#applyFilter").click(function () {
+    $("#backToCatalog").trigger("click");
+  });
 </script>
+
+<% if (Catalog) { %>
+<script>
+  $("#list-general-list").removeClass("active");
+  $("#list-catalog-list").addClass("active");
+  $("#backToCatalog").trigger("click");
+</script>
+<% } else {%>
+<script>
+  $("#list-general-list").addClass("active");
+  $("#list-catalog-list").removeClass("active");
+</script>
+
+<% } %>
 
 <link
   rel="stylesheet"

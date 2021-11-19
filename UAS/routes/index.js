@@ -4,6 +4,7 @@ const Brands = require("../models/brand");
 const Categories = require("../models/category");
 const Carts = require("../models/cart");
 const Wish = require("../models/wish");
+var Catalog = false;
 
 const router = express.Router();
 
@@ -38,16 +39,18 @@ router.get("/dashboard", async (req, res) => {
   const brands = await Brands.find();
   const categories = await Categories.find();
   const products = await Products.find();
+  Catalog = req.query.catalog;
 
   res.render("pages/dashboard", {
     brands,
     categories,
     products,
     title: "Dashboard || Minify",
+    Catalog,
   });
 });
 
-router.post("/filterProduct", async (req, res) => {
+router.get("/filterProduct", async (req, res) => {
   console.log(req.body);
   const brands = await Brands.find({}, { nama: 1, _id: 0 });
   const categories = await Categories.find({}, { nama: 1, _id: 0 });
@@ -77,10 +80,16 @@ router.post("/filterProduct", async (req, res) => {
     category: req.body.category,
   });
 
-  products.forEach((p) => {
-    console.log(p);
-  });
+  next();
 
+  // products.forEach((p) => {
+  //   console.log(p);
+  // });
+  // res.send();
+  // res.redirect("/dashboard");
+  // res.status(200);
+  // res.redirect("/dashboard");
+  // res.json(products);
   // res.render("pages/dashboard", {
   //   products,
   // });
