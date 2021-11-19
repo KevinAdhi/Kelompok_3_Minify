@@ -44,7 +44,13 @@
         </p>
 
         <!-- Form Pembayaran & Pengiriman -->
-        <form action="/payment" class="needs-validation" novalidate>
+        <form
+          id="testform"
+          action="/checkout/addOrder"
+          class="needs-validation"
+          novalidate
+          method="post"
+        >
           <div class="row mb-3">
             <label for="address" class="col-sm-12 col-md-2 col-form-label fs-5"
               >Alamat:</label
@@ -70,15 +76,14 @@
             >
             <div class="col-sm col-md-6">
               <select
-                name="pembayaran"
+                name="payment"
                 class="form-select"
                 style="font-size: large"
                 required
-                name="payment"
               >
                 <option value>Pilih Pembayaran</option>
-                <option value="bayar1">BCA</option>
-                <option value="bayar2">Virtual Account</option>
+                <option value="bca">BCA</option>
+                <option value="va">Virtual Account</option>
               </select>
               <div class="invalid-feedback">Pilih metode pembayaran anda.</div>
             </div>
@@ -98,19 +103,20 @@
                 id="kurir"
                 onchange="kirim()"
               >
-                <option class="pilihan" value>Pilih Kurir</option>
-                <option class="pilihan" value="kurir1">TIKI</option>
-                <option class="pilihan" value="kurir2">JNE</option>
+                <option class="pilihan" value="">Pilih Kurir</option>
+                <option class="pilihan" value="tiki">TIKI</option>
+                <option class="pilihan" value="jne">JNE</option>
               </select>
               <div class="invalid-feedback">Pilih kurir pengiriman anda.</div>
             </div>
             <label
-              for="payment"
+              for="pengiriman"
               class="col-sm-5 col-md-2 col-form-label fs-5 text-end"
               >Kurir yang dipilih:
             </label>
             <label
-              for="payment"
+              id="pengirimans"
+              for="pengiriman"
               class="col-sm col-md-2 col-form-label fs-5 text-end"
               ><%= checkout.pilih %>
             </label>
@@ -126,7 +132,9 @@
             <div class="col-sm-4 fs-5 text-end">RP. <%= totalPrice %></div>
             <div class="col-sm-1"></div>
             <div class="col-sm-7 fs-5">Ongkir:</div>
-            <div class="col-sm-4 fs-5 text-end">RP. <%= checkout.ongkir %></div>
+            <div class="col-sm-4 fs-5 text-end" id="ongkirs">
+              RP. <%= checkout.ongkir %>
+            </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-7 fs-5">Pajak:</div>
             <div class="col-sm-4 fs-5 text-end">RP. <%= checkout.pajak %></div>
@@ -140,21 +148,20 @@
             <div class="col-sm-7 col-md-8 fs-5 mb-5 text-end">
               Total yang harus dibayar:
             </div>
-            <div class="col-sm-4 col-md-2 fs-5 text-end">
-              <%= totalPrice+checkout.ongkir+checkout.pajak-checkout.potongan %>
-            </div>
+            <div class="col-sm-4 col-md-2 fs-5 text-end" id="totalValue"></div>
           </div>
           <!-- Tombol Order -->
-          <a href="/addOrder"
-            ><button
-              class="btn btn-outline-dark btn-lg my-2"
-              style="width: 150px; float: right"
-              type="submit"
-            >
-              Order
-            </button></a
-          >
         </form>
+        <div class="d-flex justify-content-end">
+          <button
+            class="btn btn-outline-dark btn-lg my-2"
+            style="width: 150px; float: right"
+            type="submit"
+            id="add-order"
+          >
+            Order
+          </button>
+        </div>
       </div>
       <% } else { %>
       <div class="col-md-12">
@@ -172,16 +179,29 @@
   </div>
 </section>
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
   kirim = () => {
-    window.location.replace(
+    $.get(
       window.location.href +
         "/kurir/" +
         document.getElementsByClassName("pilihan")[
           document.getElementById("kurir").selectedIndex
-        ].value
+        ].value,
+      (a) => {
+        $("#pengirimans").text(a.checkout.pilih);
+        $("#ongkirs").text(a.checkout.ongkir);
+        $("#totalValue").text(a.totalValue);
+      }
     );
   };
+</script>
+<script>
+  $("#add-order").click(function () {
+    if (confirm("Tambahkan pesanan?")) {
+      $("#testform").submit();
+    }
+  });
 </script>
 <script>
   // Nonaktifkan pengiriman formulir jika ada bidang yang tidak valid

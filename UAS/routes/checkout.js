@@ -1,5 +1,4 @@
 const express = require("express");
-const cart = require("../models/cart");
 const Carts = require("../models/cart");
 const router = express.Router();
 const Checkout = require("../models/checkout");
@@ -15,7 +14,6 @@ router.get("/", function (req, res, next) {
     totalPrice: cart.totalPrice,
     products: cart.generateArray(),
     checkout,
-    hargaAkhir: cart.totalPrice + checkout.hargaAkhir,
     title: "Checkout || Minify",
   });
 });
@@ -26,16 +24,37 @@ router.get("/kurir/:id", (req, res) => {
     req.session.checkout ? req.session.checkout : {}
   );
   checkout.kurir(id);
+  var totalValue =
+    req.session.cart.totalPrice +
+    checkout.ongkir +
+    checkout.pajak -
+    checkout.potongan;
+  checkout.totalValue = totalValue;
   req.session.checkout = checkout;
-  res.redirect("/checkout");
+  res.send({ checkout, totalValue });
+});
+
+const userController = require("../controller/order");
+
+router.post("/addOrder", (req, res) => {
+  if (!req.session.cart) {
+    res.redirect("/cart");
+  }
+  const checkout = new Checkout(
+    req.session.checkout ? req.session.checkout : {}
+  );
+  checkout.alamat = req.body.address;
+  checkout.bayar = req.body.payment;
+  var totalValue =
+    req.session.cart.totalPrice +
+    checkout.ongkir +
+    checkout.pajak -
+    checkout.potongan;
+  checkout.totalValue = totalValue;
+  req.session.checkout = checkout;
+  userController.addOrder(req, res);
+  req.session.cart = null;
+  req.session.checkout = null;
+  res.redirect("/payment");
 });
 module.exports = router;
-// router.post("/checkout", function (req, res) {
-//   var order = new Order({
-//     user: req.session.isLoggedIn,
-//     cart: cart,
-//     address: req.body.address,
-//     imagePath: req.body.imagePath,
-//     name: req.body.name,
-//   });
-// });
