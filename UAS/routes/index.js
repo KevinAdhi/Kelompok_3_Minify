@@ -134,6 +134,16 @@ router.get("/product", async (req, res) => {
   res.render("pages/product", { products: data, title: "Product || Minify" });
 });
 
+router.get("/details/:id", async (req, res) => {
+  var data = await Products.find();
+  var productId = req.params.id;
+  res.render("pages/details", {
+    products: data,
+    pid: productId,
+    title: "Product || Minify",
+  });
+});
+
 router.get("/best", (req, res) => {
   res.render("pages/best", { title: "Best || Minify" });
 });
