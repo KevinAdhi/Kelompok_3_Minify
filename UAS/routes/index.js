@@ -90,11 +90,11 @@ router.get("/product", async (req, res) => {
 });
 
 router.get("/details/:id", async (req, res) => {
-  var data = await Products.find();
   var productId = req.params.id;
+  var data = await Products.findById(productId);
+
   res.render("pages/details", {
     products: data,
-    pid: productId,
     title: "Product || Minify",
   });
 });
@@ -117,15 +117,6 @@ router.get("/Company", (req, res) => {
 
 router.get("/register", (req, res) => {
   res.render("pages/register", { title: "Register || Minify" });
-});
-
-router.get("/details/:id", (req, res) => {
-  const productId = req.params.id;
-
-  Products.findById(productId, function (err, product) {
-    Products.add(product, product.id);
-    res.redirect("/details");
-  });
 });
 
 router.get("/add-to-wish/:id", (req, res, next) => {

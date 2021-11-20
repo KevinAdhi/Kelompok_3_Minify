@@ -135,7 +135,7 @@
         <section>
           <div class="mb-3">
             <img
-              src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
+              src="<%= products.image %>"
               alt="image"
               class="main-image"
               id="expandedImg"
@@ -146,25 +146,25 @@
         <!-- Image Option -->
         <div>
           <img
-            src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
+            src="<%= products.image %>"
             alt="image"
             class="image-option"
             onclick="image(this);"
           />
           <img
-            src="/image/alienware-Bp3KmTZQlfw-unsplash.jpg"
+            src="<%= products.image %>"
             alt="image"
             class="image-option"
             onclick="image(this);"
           />
           <img
-            src="/image/niclas-illg-gyRa86ExKTw-unsplash.jpg"
+            src="<%= products.image %>"
             alt="image"
             class="image-option"
             onclick="image(this);"
           />
           <img
-            src="/image/alienware-Bp3KmTZQlfw-unsplash.jpg"
+            src="<%= products.image %>"
             alt="image"
             class="image-option"
             onclick="image(this);"
@@ -232,7 +232,7 @@
           <a
             id="check"
             class="btn btn-primary"
-            href="/checkout"
+            href="/buyNow/<%= products._id %>"
             style="
               width: 100%;
               background-color: white;
@@ -265,9 +265,8 @@
         <div class="descbox">
           <div class="proddesc">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              imperdiet, nulla et dictum interdum, nisi lorem egestas vitae
-              scel<span id="dots">...</span
+              <%= products.description %>
+              <span id="dots">...</span
               ><span id="showmore"
                 >erisque enim ligula venenatis dolor. Maecenas nisl est,
                 ultrices nec congue eget, auctor vitae massa. Fusce luctus
@@ -312,7 +311,7 @@
             <div class="prodreview">
               <div class="mb-2" style="display: flex">
                 <img
-                  src="/image/designecologist-Pmh0UoG1vlE-unsplash.jpg"
+                  src="/image/img1.jpg"
                   alt="image"
                   style="border-radius: 50%; height: 40px; width: 50px"
                 />
@@ -364,7 +363,7 @@
             <div class="prodreview">
               <div class="mb-2" style="display: flex">
                 <img
-                  src="/image/designecologist-Pmh0UoG1vlE-unsplash.jpg"
+                  src="/image/img1.jpg"
                   alt="image"
                   style="border-radius: 50%; height: 40px; width: 50px"
                 />
