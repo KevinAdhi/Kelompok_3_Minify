@@ -33,32 +33,68 @@ module.exports = {
       })
     );
   },
+
   async getProduct(req, res) {
-    const productId = req.params.id
+    const productId = req.params.id;
 
     const product = await productModel.findOne({
-      _id: productId
-    })
+      _id: productId,
+    });
 
-    console.log(productId)
+    console.log(productId);
 
-    const categories = await categoryModel.find()
-    const brands = await brandModel.find()
+    const categories = await categoryModel.find();
+    const brands = await brandModel.find();
 
-    res.render('pages/dashboardPages/editProduct', {
+    res.render("pages/dashboardPages/editProduct", {
       product: product,
       categories: categories,
       brands: brands,
-      title: `edit ${product.name}`
-    })
+      title: `edit ${product.name}`,
+    });
   },
   async editProduct(req, res) {
-    const productId = req.params.id
+    const productId = req.params.id;
 
-    await productModel.findOneAndUpdate({
-      _id: productId
-    }, req.body)
+    await productModel.findOneAndUpdate(
+      {
+        _id: productId,
+      },
+      req.body
+    );
 
-    res.redirect('/dashboard');
+    res.redirect("/dashboard");
+  },
+
+  async getProduct(req, res) {
+    const productId = req.params.id;
+
+    const product = await productModel.findOne({
+      _id: productId,
+    });
+
+    console.log(productId);
+
+    const categories = await categoryModel.find();
+    const brands = await brandModel.find();
+
+    res.render("pages/dashboardPages/editProduct", {
+      product: product,
+      categories: categories,
+      brands: brands,
+      title: `edit ${product.name}`,
+    });
+  },
+  async deleteProduct(req, res) {
+    const productId = req.params.id;
+
+    await productModel.findOneAndRemove(
+      {
+        _id: productId,
+      },
+      req.body
+    );
+
+    res.redirect("/dashboard");
   },
 };

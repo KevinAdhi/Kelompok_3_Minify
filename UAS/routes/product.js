@@ -35,12 +35,18 @@ router.post(
   productController.addProduct
 );
 
-router.get('/:id', productController.getProduct)
+router.get("/:id", productController.getProduct);
 
 router.post(
   "/edit/:id",
   upload.single("fotoProduk"),
   productController.editProduct
+);
+
+router.post(
+  "/delete/:id",
+  upload.single("fotoProduk"),
+  productController.deleteProduct
 );
 
 module.exports = router;
