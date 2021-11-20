@@ -49,65 +49,6 @@ router.get("/myOrderDetails/:id", async (req, res) => {
 router.get("/message", (req, res) => {
   res.render("pages/message", { title: "Message || Minify" });
 });
-router.get("/dashboard", async (req, res) => {
-  const brands = await Brands.find();
-  const categories = await Categories.find();
-  const products = await Products.find();
-  Catalog = req.query.catalog;
-
-  res.render("pages/dashboard", {
-    brands,
-    categories,
-    products,
-    title: "Dashboard || Minify",
-    Catalog,
-  });
-});
-
-router.get("/filterProduct", async (req, res) => {
-  console.log(req.body);
-  const brands = await Brands.find({}, { nama: 1, _id: 0 });
-  const categories = await Categories.find({}, { nama: 1, _id: 0 });
-
-  if (req.body.category == undefined) {
-    var result = [];
-
-    categories.forEach((t) => {
-      result.push(t.nama);
-    });
-
-    req.body.category = result;
-  }
-  if (req.body.brand == undefined) {
-    var result = [];
-
-    brands.forEach((t) => {
-      result.push(t.nama);
-    });
-
-    req.body.brand = result;
-  }
-  console.log(req.body.brand);
-
-  const products = await Products.find({
-    brand: req.body.brand,
-    category: req.body.category,
-  });
-
-  next();
-
-  // products.forEach((p) => {
-  //   console.log(p);
-  // });
-  // res.send();
-  // res.redirect("/dashboard");
-  // res.status(200);
-  // res.redirect("/dashboard");
-  // res.json(products);
-  // res.render("pages/dashboard", {
-  //   products,
-  // });
-});
 
 router.get("/chat-room", (req, res) => {
   res.render("pages/chatRoom", { title: "Chat Room || Minify" });
