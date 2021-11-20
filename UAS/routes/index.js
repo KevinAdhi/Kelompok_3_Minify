@@ -5,6 +5,7 @@ const Categories = require("../models/category");
 const Carts = require("../models/cart");
 const Wish = require("../models/wish");
 const Orders = require("../models/order");
+const Best = require("../models/best");
 var Catalog = false;
 
 const router = express.Router();
@@ -99,16 +100,31 @@ router.get("/details/:id", async (req, res) => {
   });
 });
 
-router.get("/best", (req, res) => {
-  res.render("pages/best", { title: "Best || Minify" });
+router.get("/add-to-best/:id", (req, res, next) => {
+  const productId = req.params.id;
+  const best = new Best(req.session.best ? req.session.best : {});
+
+  Products.findById(productId, function (err, product) {
+    if (err) {
+      return res.redirect("/dashboard");
+    }
+    best.add(product, product.id);
+    req.session.best = best;
+    console.log(req.session.best);
+    res.redirect("/dashboard");
+  });
 });
 
 router.get("/cart", (req, res) => {
   res.render("pages/cart", { title: "Cart || Minify" });
 });
 
-router.get("/newArrival", (req, res) => {
-  res.render("pages/newArrival", { title: "New Arrival || Minify" });
+router.get("/newArrival", async (req, res) => {
+  var data = await Products.find();
+  res.render("pages/newArrival", {
+    products: data,
+    title: "New Arrival || Minify",
+  });
 });
 
 router.get("/Company", (req, res) => {
