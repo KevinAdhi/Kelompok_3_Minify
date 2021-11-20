@@ -72,7 +72,7 @@
       <!-- items -->
       <% products.forEach(p => { %>
       <div class="col">
-        <a href="../editProduct.html" class="card">
+        <a href="/product/<%= p._id %>" class="card">
           <div style="margin: 0 auto; height: 50%">
             <img class="card-img-top" src="<%= p.image %>" alt="..." />
           </div>
