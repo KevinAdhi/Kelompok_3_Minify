@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controller/product");
+const productController = require("../controller/product");
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -32,7 +32,15 @@ const upload = multer({
 router.post(
   "/addProduct",
   upload.single("fotoProduk"),
-  userController.addProduct
+  productController.addProduct
+);
+
+router.get('/:id', productController.getProduct)
+
+router.post(
+  "/edit/:id",
+  upload.single("fotoProduk"),
+  productController.editProduct
 );
 
 module.exports = router;

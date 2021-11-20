@@ -1,4 +1,6 @@
 const productModel = require("../models/product");
+const categoryModel = require("../models/category");
+const brandModel = require("../models/brand");
 const url = require("url");
 
 module.exports = {
@@ -30,5 +32,31 @@ module.exports = {
         },
       })
     );
+  },
+  async getProduct(req, res) {
+    const productId = req.params.id
+
+    const product = await productModel.findOne({
+      id: productId
+    })
+
+    const categories = await categoryModel.find()
+    const brands = await brandModel.find()
+
+    res.render('pages/dashboardPages/editProduct', {
+      product: product,
+      categories: categories,
+      brands: brands,
+      title: `edit ${product.name}`
+    })
+  },
+  async editProduct(req, res) {
+    const productId = req.params.id
+
+    await productModel.findOneAndUpdate({
+      id: productId
+    }, req.body)
+
+    res.redirect('/dashboard');
   },
 };
