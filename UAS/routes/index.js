@@ -4,6 +4,7 @@ const Brands = require("../models/brand");
 const Categories = require("../models/category");
 const Carts = require("../models/cart");
 const Wish = require("../models/wish");
+const Orders = require("../models/order");
 var Catalog = false;
 
 const router = express.Router();
@@ -26,73 +27,27 @@ router.get("/checkout", (req, res) => {
 router.get("/payment", (req, res) => {
   res.render("pages/payment", { title: "Payment || Minify" });
 });
-router.get("/myorder", (req, res) => {
-  res.render("pages/myorder", { title: "My Order || Minify" });
+router.get("/myorder", async (req, res) => {
+  var order = await Orders.find();
+  res.render("pages/myorder", { orders: order, title: "My Order || Minify" });
 });
-router.get("/myOrderDetails", (req, res) => {
-  res.render("pages/myOrderDetails", { title: "My Order Details || Minify" });
+router.get("/myOrderDetails/:id", async (req, res) => {
+  try {
+    await Orders.findById(req.params.id, (err, data) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      } else {
+        res.render("pages/myOrderDetails", {
+          orders: data,
+          title: "My Order Details || Minify",
+        });
+      }
+    });
+  } catch (e) {}
 });
 router.get("/message", (req, res) => {
   res.render("pages/message", { title: "Message || Minify" });
-});
-router.get("/dashboard", async (req, res) => {
-  const brands = await Brands.find();
-  const categories = await Categories.find();
-  const products = await Products.find();
-  Catalog = req.query.catalog;
-
-  res.render("pages/dashboard", {
-    brands,
-    categories,
-    products,
-    title: "Dashboard || Minify",
-    Catalog,
-  });
-});
-
-router.get("/filterProduct", async (req, res) => {
-  console.log(req.body);
-  const brands = await Brands.find({}, { nama: 1, _id: 0 });
-  const categories = await Categories.find({}, { nama: 1, _id: 0 });
-
-  if (req.body.category == undefined) {
-    var result = [];
-
-    categories.forEach((t) => {
-      result.push(t.nama);
-    });
-
-    req.body.category = result;
-  }
-  if (req.body.brand == undefined) {
-    var result = [];
-
-    brands.forEach((t) => {
-      result.push(t.nama);
-    });
-
-    req.body.brand = result;
-  }
-  console.log(req.body.brand);
-
-  const products = await Products.find({
-    brand: req.body.brand,
-    category: req.body.category,
-  });
-
-  next();
-
-  // products.forEach((p) => {
-  //   console.log(p);
-  // });
-  // res.send();
-  // res.redirect("/dashboard");
-  // res.status(200);
-  // res.redirect("/dashboard");
-  // res.json(products);
-  // res.render("pages/dashboard", {
-  //   products,
-  // });
 });
 
 router.get("/chat-room", (req, res) => {
@@ -213,6 +168,24 @@ router.get("/add-to-cart/:id", (req, res, next) => {
       req.session.cart = cart;
       console.log(req.session.cart);
       res.redirect("/product");
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
+router.get("/buyNow/:id", (req, res) => {
+  const productId = req.params.id;
+  const cart = new Carts(req.session.cart ? req.session.cart : {});
+  if (req.session.isLoggedIn) {
+    Products.findById(productId, function (err, product) {
+      if (err) {
+        return res.redirect("/product");
+      }
+      cart.add(product, product.id);
+      req.session.cart = cart;
+      console.log(req.session.cart);
+      res.redirect("/checkout");
     });
   } else {
     res.redirect("/login");
