@@ -4,6 +4,7 @@ const Brands = require("../models/brand");
 const Categories = require("../models/category");
 const Carts = require("../models/cart");
 const Wish = require("../models/wish");
+const Orders = require("../models/order");
 var Catalog = false;
 
 const router = express.Router();
@@ -26,11 +27,24 @@ router.get("/checkout", (req, res) => {
 router.get("/payment", (req, res) => {
   res.render("pages/payment", { title: "Payment || Minify" });
 });
-router.get("/myorder", (req, res) => {
-  res.render("pages/myorder", { title: "My Order || Minify" });
+router.get("/myorder", async (req, res) => {
+  var order = await Orders.find();
+  res.render("pages/myorder", { orders: order, title: "My Order || Minify" });
 });
-router.get("/myOrderDetails", (req, res) => {
-  res.render("pages/myOrderDetails", { title: "My Order Details || Minify" });
+router.get("/myOrderDetails/:id", async (req, res) => {
+  try {
+    await Orders.findById(req.params.id, (err, data) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      } else {
+        res.render("pages/myOrderDetails", {
+          orders: data,
+          title: "My Order Details || Minify",
+        });
+      }
+    });
+  } catch (e) {}
 });
 router.get("/message", (req, res) => {
   res.render("pages/message", { title: "Message || Minify" });
