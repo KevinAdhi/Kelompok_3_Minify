@@ -56,7 +56,7 @@ module.exports = {
     const productId = req.params.id
 
     await productModel.findOneAndUpdate({
-      id: productId
+      _id: productId
     }, req.body)
 
     res.redirect('/dashboard');
