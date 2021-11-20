@@ -37,8 +37,10 @@ module.exports = {
     const productId = req.params.id
 
     const product = await productModel.findOne({
-      id: productId
+      _id: productId
     })
+
+    console.log(productId)
 
     const categories = await categoryModel.find()
     const brands = await brandModel.find()
