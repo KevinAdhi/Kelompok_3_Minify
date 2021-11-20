@@ -27,6 +27,7 @@ app.use(
 );
 
 app.use(express.static("public"));
+app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
 
 mongoose.connect(

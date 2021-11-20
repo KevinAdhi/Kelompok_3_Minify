@@ -2,7 +2,6 @@ const express = require("express");
 const Carts = require("../models/cart");
 const router = express.Router();
 const Checkout = require("../models/checkout");
-const Order = require("../models/order");
 
 router.get("/", function (req, res, next) {
   if (!req.session.cart) {
