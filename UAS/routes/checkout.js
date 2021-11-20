@@ -42,6 +42,7 @@ router.post("/addOrder", (req, res) => {
   const checkout = new Checkout(
     req.session.checkout ? req.session.checkout : {}
   );
+
   checkout.alamat = req.body.address;
   checkout.bayar = req.body.payment;
   var totalValue =
