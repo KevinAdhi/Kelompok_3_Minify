@@ -23,7 +23,7 @@
     <p class="col-lg-2">Kategori :</p>
     <select class="col" name="category" id="">
       <% categories.forEach(c => { %>
-      <option value="<%= c.nama %>"><%= c.nama %></option>
+      <option value="<%= c.nama %>" <%= c.nama === product.category ? 'selected' : '' %>><%= c.nama %></option>
       <% }) %>
     </select>
   </div>
@@ -31,7 +31,7 @@
     <p class="col-lg-2">Merk :</p>
     <select class="col" name="brand" id="">
       <% brands.forEach(b => { %>
-      <option value="<%= b.nama %>"><%= b.nama %></option>
+      <option value="<%= b.nama %>" <%= b.nama === product.brand ? 'selected' : '' %>><%= b.nama %></option>
       <% }) %>
     </select>
   </div>
