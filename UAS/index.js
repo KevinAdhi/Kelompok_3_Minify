@@ -8,7 +8,7 @@ const passport = require("passport");
 const jwt = require("passport-jwt");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // use layouts
 app.use(layouts);
