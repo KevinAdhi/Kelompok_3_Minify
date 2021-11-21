@@ -49,7 +49,7 @@ module.exports = {
     const brands = await brandModel.find();
     const imgPath = product.image;
 
-    res.render("pages/dashboardPages/editProduct", {
+    res.render("pages/editProduct", {
       product: product,
       categories: categories,
       brands: brands,
