@@ -23,7 +23,6 @@ router.get("/login", (req, res) => {
   res.render("pages/login", { title: "Login || Minify" });
 });
 
-
 router.get("/checkout", (req, res) => {
   res.render("pages/checkout", { title: "Checkout || Minify" });
 });
@@ -289,6 +288,7 @@ router.get("/add-to-cart/:id", (req, res, next) => {
   const cart = new Carts(req.session.cart ? req.session.cart : {});
   //jika user sudah login
   if (req.session.isLoggedIn) {
+    //cari id dari product yang ingin ditambah ke cart
     Products.findById(productId, function (err, product) {
       if (err) {
         return res.redirect("/product");
@@ -316,9 +316,12 @@ router.get("/buyNow/:id", (req, res) => {
       if (err) {
         return res.redirect("/product");
       }
+      //tambah product ke cart
       cart.add(product, product.id);
+      //update session
       req.session.cart = cart;
       console.log(req.session.cart);
+      //langsung ke checkout
       res.redirect("/checkout");
     });
     //jika user belum login

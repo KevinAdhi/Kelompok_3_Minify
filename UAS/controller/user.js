@@ -61,6 +61,7 @@ module.exports = {
     }
   },
   async register(req, res) {
+    //ambil semua data dalam form register simpan ke object user, set foto profil default untuk user baru
     var user = { ...req.body, imagePath: "/public/image/user.svg" };
     await userModel.create(user);
 
