@@ -19,11 +19,22 @@ module.exports = {
 
     const userPassword = user.password;
     if (email === "MinifyAdmin@mail.com" && password === "admin") {
-      req.session.user = "admin";
+      req.session.user = {
+        type: "admin",
+      };
       req.session.isLoggedIn = true;
       res.redirect("/homePage");
     } else if (password === user.password) {
-      req.session.user = "customer";
+      req.session.user = {
+        type: "customer",
+        username: user.username,
+        email: user.email,
+        address: user.address,
+        password: user.password,
+        gender: user.gender,
+        phone: user.phone,
+        birthDate: user.birthDate,
+      };
       req.session.isLoggedIn = true;
       res.redirect("/homePage");
     } else {
