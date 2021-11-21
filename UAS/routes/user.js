@@ -11,6 +11,7 @@ router.get("/logout", async (req, res) => {
   //bersihkan session cart dan checkout ketika logout
   req.session.cart = null;
   req.session.checkout = null;
+  req.session.wish = null;
   res.redirect("/");
 });
 

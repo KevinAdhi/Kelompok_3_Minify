@@ -7,7 +7,7 @@ module.exports = {
     //jika user tidak upload foto profil
     if (req.body.fotoProfil == "") {
       //setting ke foto lama atau foto default
-      imagepath = req.body.imgPathLama || "/public/image/user.svg";
+      imagepath = req.body.imgPathLama;
     } else {
       //jika upload foto, pakai foto tersebut
       imagepath = "/public/image/" + req.body.fotoProfil;
@@ -16,7 +16,7 @@ module.exports = {
     console.log(req.body);
     var userEdit = {
       //ambil data dari form edit
-      image: imagepath,
+      imagePath: imagepath,
       username: req.body.username,
       email: req.body.email,
       address: req.body.address,
