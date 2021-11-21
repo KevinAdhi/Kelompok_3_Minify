@@ -84,7 +84,16 @@ module.exports = {
       product
     );
 
-    res.redirect("/dashboard");
+    var catalog = true;
+
+    res.redirect(
+      url.format({
+        pathname: "/dashboard",
+        query: {
+          catalog,
+        },
+      })
+    );
   },
 
   async deleteProduct(req, res) {
