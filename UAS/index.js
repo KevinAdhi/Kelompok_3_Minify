@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("passport");
 const jwt = require("passport-jwt");
-
+const Categories = require("./models/category");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -73,6 +73,10 @@ app.use((req, res, next) => {
 });
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
+  next();
+});
+app.use(async (req, res, next) => {
+  res.locals.categories = await Categories.find({}, { nama: 1, _id: 0 });
   next();
 });
 
