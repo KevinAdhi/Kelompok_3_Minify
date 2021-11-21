@@ -4,7 +4,7 @@
   action="/product/edit/<%= product._id %>"
   class="container"
   method="POST"
-  enctype="multipart/form-data"
+
 >
   <div class="row">
     <p class="col-lg-2">Nama Produk :</p>
@@ -50,6 +50,11 @@
       class="col"
       type="file"
       name="fotoProduk"
+    />
+    <input
+      class="col"
+      type="hidden"
+      name="imgPathLama"
       value="<%= product.image %>"
     />
   </div>
