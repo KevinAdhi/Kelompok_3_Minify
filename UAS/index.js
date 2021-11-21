@@ -63,7 +63,6 @@ const categoryBrandRouter = require("./routes/categoryBrand");
 const cartRouter = require("./routes/cart");
 const checkoutRouter = require("./routes/checkout");
 const wishRouter = require("./routes/wish");
-const detailsRouter = require("./routes/details");
 const dashboardRouter = require("./routes/dashboard");
 const bestRouter = require("./routes/best");
 
@@ -83,7 +82,6 @@ app.use("/product", productRouter);
 app.use("/user", userRouter);
 app.use("/", indexRouter);
 app.use("/wishlist", wishRouter);
-app.use("/details", detailsRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/bestseller", bestRouter);
 

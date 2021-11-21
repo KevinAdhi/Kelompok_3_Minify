@@ -5,8 +5,16 @@ const url = require("url");
 
 module.exports = {
   async addProduct(req, res) {
+    var imagepath;
+    console.log(req.body.fotoProduk);
+    if (req.body.fotoProduk == "") {
+      imagepath = "/public/image/noImage.jpg";
+    } else {
+      imagepath = "/public/image/" + req.body.fotoProduk;
+    }
+
     var product = {
-      image: req.file.path,
+      image: imagepath,
       name: req.body.name,
       price: req.body.price,
       category: req.body.category,
@@ -15,13 +23,9 @@ module.exports = {
       description: req.body.description,
       rating: req.body.rating,
     };
-    if (!req.file) {
-      console.log("Tidak ada file yang diupload");
-    } else {
-      console.log("produk: " + req.session);
-      await productModel.create(product);
-      console.log("product ditambahkan");
-    }
+    await productModel.create(product);
+    console.log("product ditambahkan");
+
     var catalog = true;
 
     res.redirect(
@@ -43,18 +47,28 @@ module.exports = {
 
     const categories = await categoryModel.find();
     const brands = await brandModel.find();
+    const imgPath = product.image;
 
-    res.render("pages/dashboardPages/editProduct", {
+    res.render("pages/editProduct", {
       product: product,
       categories: categories,
       brands: brands,
+      imgPath,
       title: `edit ${product.name}`,
     });
   },
+
   async editProduct(req, res) {
     const productId = req.params.id;
+
+    var imagepath;
+    if (req.body.fotoProduk == "") {
+      imagepath = req.body.imgPathLama;
+    } else {
+      imagepath = "/public/image/" + req.body.fotoProduk;
+    }
     var product = {
-      image: req.file.path,
+      image: imagepath,
       name: req.body.name,
       price: req.body.price,
       category: req.body.category,
@@ -70,8 +84,18 @@ module.exports = {
       product
     );
 
-    res.redirect("/dashboard");
+    var catalog = true;
+
+    res.redirect(
+      url.format({
+        pathname: "/dashboard",
+        query: {
+          catalog,
+        },
+      })
+    );
   },
+
   async deleteProduct(req, res) {
     const productId = req.params.id;
 
@@ -82,6 +106,15 @@ module.exports = {
       req.body
     );
 
-    res.redirect("/dashboard");
+    var catalog = true;
+
+    res.redirect(
+      url.format({
+        pathname: "/dashboard",
+        query: {
+          catalog,
+        },
+      })
+    );
   },
 };
