@@ -34,13 +34,13 @@ module.exports = {
     if (email === "MinifyAdmin@mail.com" && password === "admin") {
       req.session.user = {
         type: "admin",
-        image: user.imagePath,
+        imagePath: user.imagePath,
       };
       req.session.isLoggedIn = true;
       res.redirect("/");
     } else if (password === userPassword) {
       req.session.user = {
-        image: user.imagePath,
+        imagePath: user.imagePath,
         type: "customer",
         username: user.username,
         email: user.email,
