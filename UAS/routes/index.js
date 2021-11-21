@@ -88,7 +88,105 @@ router.get("/edit-product", (req, res) => {
 //untuk menampilkan page product dan semua product yang ada
 router.get("/product", async (req, res) => {
   var data = await Products.find();
-  res.render("pages/product", { products: data, title: "Product || Minify" });
+  const brands = await Brands.find({}, { nama: 1, _id: 0 });
+  const categories = await Categories.find({}, { nama: 1, _id: 0 });
+
+  res.render("pages/product", {
+    products: data,
+    brands,
+    categories,
+    title: "Product || Minify",
+  });
+});
+
+router.post("/productFilter", async (req, res) => {
+  var data;
+  const brands = await Brands.find({}, { nama: 1, _id: 0 });
+  const categories = await Categories.find({}, { nama: 1, _id: 0 });
+  var maxPrice;
+  console.log(req.body);
+  //jika filter kategori kosong, maka akan diisi semua kategori dari database
+  if (req.body.category == undefined) {
+    var result = [];
+
+    categories.forEach((t) => {
+      result.push(t.nama);
+    });
+
+    req.body.category = result;
+  }
+  //jika filter brand kosong, maka akan diisi semua brand dari database
+  if (req.body.brand == undefined) {
+    var result = [];
+
+    brands.forEach((t) => {
+      result.push(t.nama);
+    });
+
+    req.body.brand = result;
+  }
+  //jika filter harga minimum kosong
+  if (req.body.minPrice == "") {
+    req.body.minPrice = 0;
+  }
+  //jika filter harga maximum kosong, harga diganti menjadi harga paling tinggi dari database
+  if (req.body.maxPrice == "") {
+    maxPrice = await Products.find({}, { price: 1, _id: 0 })
+      .sort({ price: -1 })
+      .limit(1);
+    req.body.maxPrice = maxPrice[0].price;
+  }
+  var sortParam;
+  var sortVal;
+
+  //function untuk sort data product yang telah didapat
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+    return function (a, b) {
+      /* next line works with strings and numbers,
+       * and you may want to customize it to your needs
+       */
+      var result =
+        a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+      return result * sortOrder;
+    };
+  }
+
+  //pengambilan data product berdasarkan filter
+  data = await Products.find({
+    brand: req.body.brand,
+    category: req.body.category,
+    $and: [
+      { price: { $gte: req.body.minPrice } },
+      { price: { $lte: req.body.maxPrice } },
+    ],
+  });
+
+  //swtich case sorting
+  switch (req.body.sortBy) {
+    case "Rate":
+      data.sort(dynamicSort("rating"));
+      break;
+    case "hiPrice":
+      data.sort(dynamicSort("-price"));
+      break;
+    case "loPrice":
+      data.sort(dynamicSort("price"));
+      break;
+    default:
+    // code block
+  }
+
+  res.render("pages/product", {
+    products: data,
+    brands,
+    categories,
+    title: "Product || Minify",
+  });
 });
 
 //untuk menampilkan page details. Details dari product yang di pilih
