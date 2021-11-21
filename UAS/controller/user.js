@@ -37,7 +37,7 @@ module.exports = {
         image: user.imagePath,
       };
       req.session.isLoggedIn = true;
-      res.redirect("/homePage");
+      res.redirect("/");
     } else if (password === userPassword) {
       req.session.user = {
         image: user.imagePath,
@@ -52,7 +52,7 @@ module.exports = {
         birthDate: convertDate(user.birthDate),
       };
       req.session.isLoggedIn = true;
-      res.redirect("/homePage");
+      res.redirect("/");
     } else {
       res.render("pages/login", {
         error: "Wrong username or Password",
