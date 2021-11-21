@@ -210,6 +210,7 @@ router.get("/details/:id", async (req, res) => {
   });
 });
 
+//untuk menambahkan produk ke dalam best seller
 router.get("/add-to-best/:id", (req, res, next) => {
   const productId = req.params.id;
   const best = new Best(req.session.best ? req.session.best : {});
@@ -230,6 +231,7 @@ router.get("/cart", (req, res) => {
   res.render("pages/cart", { title: "Cart || Minify" });
 });
 
+//untuk menampilkan page new arrival dan semua product yang ada
 router.get("/newArrival", async (req, res) => {
   var data = await Products.find();
   res.render("pages/newArrival", {
@@ -242,6 +244,7 @@ router.get("/Company", (req, res) => {
   res.render("pages/Company", { title: "Company || Minify" });
 });
 
+//menampilkan page register
 router.get("/register", (req, res) => {
   res.render("pages/register", { title: "Register || Minify" });
 });
