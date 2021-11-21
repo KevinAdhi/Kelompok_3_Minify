@@ -31,6 +31,7 @@
 <section>
   <div id="profile">
     <div class="head">
+      <!-- jika user login -->
       <% if(user){console.log(user) %>
       <img src="<%= user.image %> " class="chat-avatar" alt="..." />
       <div>
@@ -69,6 +70,7 @@
         </p>
         <p id="viewAlamat"><%= user.address %></p>
       </div>
+      <!--jika user belum login-->
       <% }else{ %>
       <div class="col-md-12">
         <div
