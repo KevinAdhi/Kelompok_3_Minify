@@ -132,11 +132,11 @@ router.post("/productFilter", async (req, res) => {
     req.body.brand = result;
   }
   //jika filter harga minimum kosong
-  if (req.body.minPrice == "") {
+  if (req.body.minPrice == "" || req.body.minPrice == undefined) {
     req.body.minPrice = 0;
   }
   //jika filter harga maximum kosong, harga diganti menjadi harga paling tinggi dari database
-  if (req.body.maxPrice == "") {
+  if (req.body.maxPrice == "" || req.body.maxPrice == undefined) {
     maxPrice = await Products.find({}, { price: 1, _id: 0 })
       .sort({ price: -1 })
       .limit(1);
@@ -184,7 +184,8 @@ router.post("/productFilter", async (req, res) => {
       data.sort(dynamicSort("price"));
       break;
     default:
-    // code block
+      data.sort(dynamicSort("rating"));
+      break;
   }
 
   res.render("pages/product", {
