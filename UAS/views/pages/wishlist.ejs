@@ -39,10 +39,12 @@
       <div style="background-color: rgb(175, 175, 175); padding: 2%">
         <div class="row row-cols-1 row-cols-md-4">
           <% if(products.length > 0 ){ %> 
+            <!-- looping product yang ada di dalam wishlist -->
             <% products.forEach(function(items){ %>
           <div class="col mb-4">
             <a href="/details/<%= items.item._id %>" style="text-decoration: none; color: black">
               <div class="card h-100">
+                <!-- Product Image -->
                 <img
                   src="<%= items.item.image %>"
                   height="250px"
@@ -50,21 +52,26 @@
                   alt="..."
                 />
                 <div class="card-body">
+                  <!-- Product Name -->
                   <h5 class="card-title"><%= items.item.name %></h5>
+                  <!-- Product Price -->
                   <p class="card-text">RP.<%= items.item.price %></p>
                 </div>
+                <!-- Tombol untuk memasukan produk ke cart -->
                 <a
                   href="/wishlist/add-to-cart-from-wish/<%= items.item._id %>"
                   class="btn btn-primary mar10"
                   style="background-color: grey; color: white; border: none"
                   >Add to cart</a
                 >
+                <!-- Tombol untuk checkout produk -->
                 <a
                   href="checkout.html"
                   class="btn btn-primary mar10"
                   style="background-color: grey; color: white; border: none"
                   >Buy Now</a
                 >
+                <!-- Tombol untuk menghapus produk dari wishlist -->
                 <a
                   href="/wishlist/remove-w/<%= items.item._id %>"
                   class="btn btn-primary mar10"
@@ -75,7 +82,7 @@
             </a>
           </div>
           <% }) %>
-          <% } else {%>
+          <% } else {%> <!--Tampilan kalau tidak ada produk di wishlist-->
             <div class="card-body" style="width: auto;">
             <div class="row">
                 <div class="col-md-8 offset-md-2">

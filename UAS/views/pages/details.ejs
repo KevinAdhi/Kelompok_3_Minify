@@ -173,6 +173,7 @@
       </div>
       <!-- Product Details -->
       <div class="prodetail">
+        <!-- Nama Produk -->
         <h4><b><%= products.name %></b></h4>
         <div class="jc-sb mb-3">
           <p>(5.0/5.0)</p>
@@ -216,6 +217,7 @@
           <p>Rp <%= products.price %></p>
         </div>
         <div class="mb-3">
+          <!-- Tombol untuk memasukan produk ke cart -->
           <a
             href="/add-to-cart/<%= products._id %>"
             class="btn btn-primary"
@@ -229,6 +231,7 @@
           >
         </div>
         <div class="mb-3">
+          <!-- Tombol untuk checkout produk -->
           <a
             id="check"
             class="btn btn-primary"
@@ -243,6 +246,7 @@
           >
         </div>
         <div class="mb-3">
+          <!-- Tombol untuk memasukan produk ke wishlist -->
           <a
             href="/add-to-wish/<%= products._id %>"
             class="btn btn-primary"
@@ -264,6 +268,7 @@
         <h3>Description</h3>
         <div class="descbox">
           <div class="proddesc">
+            <!-- Deskripsi Produk -->
             <p>
               <%= products.description %>
               <span id="dots">...</span
