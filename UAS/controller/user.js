@@ -1,5 +1,19 @@
 const userModel = require("../models/user");
 
+//fungsi untuk convert tanggal dari backend untuk ditampilkan ke frontend
+let convertDate = (datep) => {
+  date = new Date(datep);
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  dt = date.getDate();
+  if (dt < 10) {
+    dt = "0" + dt;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
+  return year + "-" + month + "-" + dt;
+};
 module.exports = {
   async login(req, res) {
     // get user input
@@ -16,24 +30,26 @@ module.exports = {
         title: "Login || Minify",
       });
     }
-
     const userPassword = user.password;
     if (email === "MinifyAdmin@mail.com" && password === "admin") {
       req.session.user = {
         type: "admin",
+        image: user.imagePath,
       };
       req.session.isLoggedIn = true;
       res.redirect("/homePage");
-    } else if (password === user.password) {
+    } else if (password === userPassword) {
       req.session.user = {
+        image: user.imagePath,
         type: "customer",
         username: user.username,
         email: user.email,
         address: user.address,
-        password: user.password,
+        password: userPassword,
         gender: user.gender,
         phone: user.phone,
-        birthDate: user.birthDate,
+        //user.birthDate diconvert agar format bisa ditampilkan ke front end dalam type: date
+        birthDate: convertDate(user.birthDate),
       };
       req.session.isLoggedIn = true;
       res.redirect("/homePage");
@@ -45,7 +61,8 @@ module.exports = {
     }
   },
   async register(req, res) {
-    await userModel.create(req.body);
+    var user = { ...req.body, imagePath: "/public/image/user.svg" };
+    await userModel.create(user);
 
     res.redirect("/login");
   },

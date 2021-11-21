@@ -65,6 +65,7 @@ const checkoutRouter = require("./routes/checkout");
 const wishRouter = require("./routes/wish");
 const dashboardRouter = require("./routes/dashboard");
 const bestRouter = require("./routes/best");
+const editProfileRouter = require("./routes/editProfile");
 
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
@@ -84,6 +85,7 @@ app.use("/", indexRouter);
 app.use("/wishlist", wishRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/bestseller", bestRouter);
+app.use("/editProfile", editProfileRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Berjalan di port ${PORT}`);

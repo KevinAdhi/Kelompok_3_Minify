@@ -63,7 +63,10 @@ router.get("/profile", (req, res) => {
 });
 
 router.get("/editProfile", (req, res) => {
-  res.render("pages/editProfile", { title: "Edit Profile || Minify" });
+  res.render("pages/editProfile", {
+    user: req.session.user,
+    title: "Edit Profile || Minify",
+  });
 });
 
 router.get("/HowToOrder", (req, res) => {
