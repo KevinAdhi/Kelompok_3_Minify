@@ -85,11 +85,13 @@ router.get("/edit-product", (req, res) => {
   res.render("pages/editProduct", { title: "Edit Product || Minify" });
 });
 
+//untuk menampilkan page product dan semua product yang ada
 router.get("/product", async (req, res) => {
   var data = await Products.find();
   res.render("pages/product", { products: data, title: "Product || Minify" });
 });
 
+//untuk menampilkan page details. Details dari product yang di pilih
 router.get("/details/:id", async (req, res) => {
   var productId = req.params.id;
   var data = await Products.findById(productId);
@@ -135,10 +137,12 @@ router.get("/register", (req, res) => {
   res.render("pages/register", { title: "Register || Minify" });
 });
 
+//untuk menambahkan product ke wishlist
 router.get("/add-to-wish/:id", (req, res, next) => {
   const productId = req.params.id;
   const wish = new Wish(req.session.wish ? req.session.wish : {});
-
+  //mengecek apakah sudah login atau belum
+  //kalau sudah produk dimasukan ke wishlist
   if (req.session.isLoggedIn) {
     Products.findById(productId, function (err, product) {
       if (err) {
@@ -150,6 +154,7 @@ router.get("/add-to-wish/:id", (req, res, next) => {
       res.redirect("/product");
     });
   } else {
+    //kalau belum akan di arahkan ke page login
     res.redirect("/login");
   }
 });

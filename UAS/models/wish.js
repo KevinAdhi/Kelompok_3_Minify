@@ -1,7 +1,8 @@
 module.exports = function Wish(oldWish) {
-  this.items = oldWish.items || {};
   //atribut dengan nama items
+  this.items = oldWish.items || {};
 
+  // function yang digunakan di routes untuk menambahkan product ke wishlist
   this.add = function (item, id) {
     var storedItem = this.items[id];
     // storedItem
@@ -10,9 +11,12 @@ module.exports = function Wish(oldWish) {
     }
   };
 
+  // function yang digunakan di routes untuk remove product dari wishlist
   this.removeItem = function (id) {
     delete this.items[id];
   };
+
+  //function untuk generate array wishlist
   this.generateArray = function () {
     var arr = [];
     for (var id in this.items) {
