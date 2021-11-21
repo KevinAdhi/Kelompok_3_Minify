@@ -4,8 +4,6 @@ const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const passport = require("passport");
-const jwt = require("passport-jwt");
 const Categories = require("./models/category");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,9 +23,6 @@ app.use(
     cookie: {},
   })
 );
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(express.static("public"));
 app.use("/public", express.static("public"));
