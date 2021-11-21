@@ -54,7 +54,8 @@
 
           <!-- account section-->
           <div class="d-none d-lg-flex navbar-nav nav-item">
-            <% if (locals.isLoggedIn){ %> <% if (locals.user == "admin"){ %>
+            <% if (locals.isLoggedIn){ %> <% if (locals.user.type == "admin"){
+            %>
             <!-- login sebagai penjual -->
             <div class="navbar-nav nav-item dropdown" id="ownerBtn">
               <button
@@ -78,7 +79,7 @@
                 >
               </div>
             </div>
-            <% } else if (locals.user == "customer") { %>
+            <% } else if (locals.user.type == "customer") { %>
             <!-- login sebagai pembeli -->
             <a
               class="btn btn-outline-dark"

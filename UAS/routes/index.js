@@ -56,11 +56,17 @@ router.get("/chat-room", (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-  res.render("pages/profile", { title: "Profile || Minify" });
+  res.render("pages/profile", {
+    user: req.session.user,
+    title: "Profile || Minify",
+  });
 });
 
-router.get("/edit-profile", (req, res) => {
-  res.render("pages/editProfile", { title: "Edit Profile || Minify" });
+router.get("/editProfile", (req, res) => {
+  res.render("pages/editProfile", {
+    user: req.session.user,
+    title: "Edit Profile || Minify",
+  });
 });
 
 router.get("/HowToOrder", (req, res) => {

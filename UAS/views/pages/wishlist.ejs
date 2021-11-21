@@ -41,7 +41,7 @@
           <% if(products.length > 0 ){ %> 
             <% products.forEach(function(items){ %>
           <div class="col mb-4">
-            <a href="/details/<%= product._id %>" style="text-decoration: none; color: black">
+            <a href="/details/<%= items.item._id %>" style="text-decoration: none; color: black">
               <div class="card h-100">
                 <img
                   src="<%= items.item.image %>"
