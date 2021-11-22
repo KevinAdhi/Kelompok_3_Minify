@@ -92,4 +92,6 @@ Informasi login ke aplikasi
 	Email: MinifyCustomer@mail.com
 	Password: customer
 
-* Untuk menambah akun customer dapat dilakukan dengan cara register
+* Untuk menambah akun customer dapat dilakukan dengan cara register 
+
+
