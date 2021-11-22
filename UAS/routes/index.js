@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("pages/login", { title: "Login || Minify" });
+  res.render("pages/logIn", { title: "Login || Minify" });
 });
 
 router.get("/checkout", (req, res) => {

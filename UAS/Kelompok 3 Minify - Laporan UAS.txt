@@ -1,0 +1,95 @@
+﻿WEB PROGRAMMING
+Laporan UAS Kelompok 3 Minify
+  
+
+Anggota Kelompok
+ 
+535200050 - Kevin Adhi Dhamma Setiawan
+535200056 - Stephen Adhikurnia
+535200058 - Richard Stephen
+535200066 - Wendy Bunandi
+535200082 - Hongi Nagaputra
+535160026 - Philip Bryan Halim
+
+
+
+Topik apps
+E-commerce :  Sebuah toko komputer online berbasis web 
+
+
+Deskripsi tugas dari setiap anggota kelompok
+* Kevin Adhi Dhamma Setiawan - 535200050
+   * Mengubah page HTML menjadi EJS pada page Product, Product Details, Wishlist, New Arrival, Best Seller, dan Register
+   * Membuat page Product menampilkan produk sesuai data yang ada pada database
+   * Membuat sistem wishlist agar product bisa masuk ke Wishlist
+   * Membuat page Details Product menampilkan data sesuai product yang di pilih
+   * Membuat sistem untuk menghapus product dari wishlist
+   * Demo Web
+* Stephen Adhikurnia - 535200056
+   * Mengubah page HTML menjadi EJS pada page Cart, Change Password, Forget Password, Verification Code.
+   * Melakukan modifikasi redirect page
+   * Membuat sistem penarikan data dari database ke page profile
+* Richard Stephen - 535200058
+   * Mengubah page HTML menjadi EJS pada page: Home Page, Dashboard, Edit Product, Profile, Edit Profile, chatRoom
+   * Membuat sistem backend add product untuk menambah produk ke database
+   * Membuat sistem backend add category dan brand untuk menambah category atau brand ke database
+   * Membuat sistem filter produk dan menampilkan produk dari database sesuai. dengan hasil filter pada dashboard dan pada page products
+   * Membuat tampilan navbar berubah sesudah login
+   * Menampilkan orderan yang ada di database pada dashboard
+* Wendy Bunandi - 535200066
+   * Mengubah Page HTML menjadi EJS pada Page: Login Page, Company Page, FAQ Page, Terms Page, How To Order Page  
+   * Menambahkan anggota baru di Company Page   
+   * Menambahkan Syarat & Ketentuan dan redirectnya ke Terms Page pada Page Register 
+   * Membuat sistem backend delete product untuk menghapus produk yang berada di database MongoDB 
+   * Mengubah Page homePage menjadi Page index untuk tampilan depan atau utama Minify 
+   * Mengubah redirect di Page lain dari sebelumnya ke Page homePage berubah menjadi ke page index 
+   * Membantu debugging error pada sistem backend yang menampilkan product  
+   * Melakukan atau menghosting Minify Ke HeroKu
+* Hongi Nagaputra - 535200082
+   * Mengubah page HTML menjadi EJS pada page: Checkout, Message, My Order, My Order Detail, Payment.
+   * Membuat sistem backend untuk mengecek data user yang sedang login serta dapat mengambilnya dari database.
+   * Membuat sistem add to cart dan buy now untuk menambah produk ke cart.
+   * Membuat sistem untuk menambah/mengurangi/menghapus produk serta menghitung jumlah dan harga semua produk di page Cart.
+   * Membuat sistem untuk mengubah harga ongkir, pilihan kurir dan harga akhir melalui dropdown Pengiriman serta menampilkan product dan hasil dari harga akhir di page Checkout.
+   * Membuat sistem backend untuk menambah pesanan ke database.
+   * Membuat sistem untuk menampilkan semua pesanan yang dibuat dari database di page My Order.
+   * Membuat sistem untuk menampilkan rincian dari sebuah pesanan tertentu dari database di page My Order Detail.
+   * Menampilkan data user sebagai value awal untuk diedit pada page Edit Profile.
+   * Membuat sistem backend untuk mengedit data user di Edit Profile dan menyimpannya ke dalam database.
+* Philip Bryan Halim - 535160026
+   * Membuat sistem backend untuk register akun untuk menambah akun pada database
+   * Membuat sistem backend untuk login akun sesuai dengan akun yang sudah ada pada database
+   * Membuat sistem backend untuk edit data produk yang ada pada database
+
+
+
+
+URL Github
+https://github.com/KevinAdhi/Kelompok_3_Minify 
+
+URL Github untuk hosting 
+https://github.com/wendy12321/hostingMinify 
+
+URL project yang sudah live
+https://hostingminify.herokuapp.com/ 
+
+Link video demo apps
+
+* Link drive 
+https://drive.google.com/drive/folders/1mmerwX3PMrk1tlG0qCRYXqExXw-gb0Nh?usp=sharing 
+
+* Link Youtube 
+https://youtu.be/gOOHCk9Qrm0 
+
+
+Informasi login ke aplikasi 
+
+* Akun untuk login sebagai admin
+	Email: MinifyAdmin@mail.com
+	Password: admin
+
+* Contoh akun untuk login sebagai customer
+	Email: MinifyCustomer@mail.com
+	Password: customer
+
+* Untuk menambah akun customer dapat dilakukan dengan cara register

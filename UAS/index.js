@@ -80,8 +80,9 @@ app.use("/", indexRouter);
 app.use("/wishlist", wishRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/bestseller", bestRouter);
-app.use("/editProfile", editProfileRouter);
+app.use("/editprofile", editProfileRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Berjalan di port ${PORT}`);
 });
+
