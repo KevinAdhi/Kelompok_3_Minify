@@ -330,4 +330,4 @@ router.get("/buyNow/:id", (req, res) => {
 module.exports = router; 
 
 
-        
+      
